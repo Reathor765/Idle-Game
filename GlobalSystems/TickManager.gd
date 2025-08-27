@@ -28,7 +28,6 @@ func _ready() -> void:
 
 	_tick_timer.start()
 
-
 func _on_tick_timer_timeout() -> void:
 	# When the timer finishes, we emit our global tick signal.
 	# We pass the duration of the tick (the timer's wait_time) as the delta.
