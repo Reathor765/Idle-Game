@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://GlobalSystems/PlayerData.gd" id="1_r0vi1"]
+
+[resource]
+script = ExtResource("1_r0vi1")
+resources = {
+"electronics": 0.0,
+"metals": 9115.043999910355,
+"polymers": 4557.521999955177
+}
+systems = {
+"Sol": {
+"infrastructure": {
+"Fabricator": 1
+}
+}
+}
+last_save_timestamp = 1756336235
