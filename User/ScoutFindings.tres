@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="ScoutResults" load_steps=2 format=3 uid="uid://b3ai383qnadqq"]
+
+[ext_resource type="Script" uid="uid://pc8vqclvav6q" path="res://Scripts/Scout_results.gd" id="1_ntf6r"]
+
+[resource]
+script = ExtResource("1_ntf6r")

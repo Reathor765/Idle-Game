@@ -9,11 +9,15 @@ class_name ResourceControl
 # You should have 4 name labels and 4 value labels.
 @export var resource_name_labels: Array[RichTextLabel]
 @export var resource_value_labels: Array[RichTextLabel]
+@export var robotics_name_labels: Array[RichTextLabel]
+@export var robotics_value_labels: Array[RichTextLabel]
 
 # --- Configuration ---
 # Define which resources these labels should display, in order.
 # IMPORTANT: These names must match the keys in GameManager.player_data.resources
 @export var displayed_resources: Array[String] = ["hydrogen", "carbon", "oxygen", "nitrogen"]
+
+@export var displayed_systems: Array[String] = ["Miner", "Fabricator"]
 
 
 func _ready() -> void:
@@ -37,9 +41,11 @@ func update_display() -> void:
 		return # Don't try to update if data isn't loaded yet.
 
 	var player_resources: Dictionary = GameManager.player_data.resources
+	var player_robotics: Dictionary = GameManager.player_data.systems
 
 	# Loop through the labels and update them.
 	var num_labels_to_update = min(displayed_resources.size(), resource_name_labels.size(), resource_value_labels.size())
+	var num_labels_to_update2 = min(displayed_systems.size(), robotics_name_labels.size(), robotics_value_labels.size())
 	for i in range(num_labels_to_update):
 		var resource_name: String = displayed_resources[i]
 		var name_label: RichTextLabel = resource_name_labels[i]
@@ -54,3 +60,26 @@ func update_display() -> void:
 			var resource_value: float = player_resources.get(resource_name, 0.0)
 			# Format the number to show 1 decimal place. Adjust as needed.
 			value_label.text = "%.1f" % resource_value
+	for i in range (num_labels_to_update2):
+		var system_name: String = displayed_systems[i]
+		var name_label: RichTextLabel = robotics_name_labels[i]
+		var value_label: RichTextLabel = robotics_value_labels[i]
+
+		if name_label:
+			name_label.text = system_name.capitalize() + ":"
+
+		if value_label:
+			# Access the nested dictionary for system units
+			# Assuming "Sol" is the system and "robotics" or "infrastructure" are categories
+			var system_value: int = 0
+			if system_name == "Miner":
+				system_value = player_robotics.get("Sol", {}).get("robotics", {}).get("Miner", 0)
+			elif system_name == "Fabricator":
+				system_value = player_robotics.get("Sol", {}).get("infrastructure", {}).get("Fabricator", 0)
+			elif system_name == "Scout":
+				system_value = player_robotics.get("Sol", {}).get("infrastructure", {}).get("Scout", 0)
+			elif system_name == "Research":
+				system_value = player_robotics.get("Sol", {}).get("infrastructure", {}).get("Research", 0)
+			# Add more elifs for other systems as needed
+			
+			value_label.text = "%d" % system_value

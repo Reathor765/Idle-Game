@@ -22,6 +22,13 @@ class_name PlayerData
 # A dictionary to store the levels of global upgrades purchased.
 # Example: {"fabrication_speed": 3, "vessel_cost": 1}
 @export var global_upgrades: Dictionary = {}
+@export var research_upgrades: Dictionary = {}
+# A dictionary to store active build jobs.
+# Example: {"Miner": {"completion_timestamp": 1678886400, "total_build_time": 5.0}}
+@export var build_queue: Dictionary = {}
+
+# Holds all data related to scouting and discovered asteroids.
+@export var scout_findings: ScoutFindings
 
 # -- System Data --
 

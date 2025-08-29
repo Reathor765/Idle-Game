@@ -1,19 +1,25 @@
-[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3 uid="uid://dnxtx247bqfh3"]
 
-[ext_resource type="Script" path="res://GlobalSystems/PlayerData.gd" id="1_r0vi1"]
+[ext_resource type="Script" uid="uid://1lm2x26m8n6" path="res://GlobalSystems/PlayerData.gd" id="1_r0vi1"]
 
 [resource]
 script = ExtResource("1_r0vi1")
 resources = {
-"electronics": 0.0,
-"metals": 9115.043999910355,
-"polymers": 4557.521999955177
+"crystals": 52897.46187500476,
+"metals": 249967.1844134455,
+"organics": 65002.43500000952,
+"polymers": 81573.35705604083
 }
 systems = {
 "Sol": {
 "infrastructure": {
-"Fabricator": 1
+"Fabricator": 9,
+"Research": 1,
+"Scout": 5
+},
+"robotics": {
+"Miner": 15
 }
 }
 }
-last_save_timestamp = 1756336235
+last_save_timestamp = 1756424683
