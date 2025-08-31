@@ -43,9 +43,8 @@ extends Control
 @export var scout_build_time_increment: float = 1.10 # 10% longer per existing fabricator
 
 @export_group("Research Bots")
-@export var research_base_cost: float = 50000.0
+@export var research_base_cost: Dictionary = {}
 @export var research_cost_increment: float = 1.35
-@export var research_cost_resource: Array = ["metals", "polymers", "organics", "crystals"]
 @export var research_base_build_time: float = 600.0 # seconds
 @export var research_build_time_increment: float = 1.10 # 10% longer per existing fabricator
 
@@ -53,7 +52,7 @@ extends Control
 var _current_miner_cost: float = 0.0
 var _current_fab_cost: float = 0.0
 var _current_scout_cost: float = 0.0
-var _current_research_cost: float = 0.0
+var _current_research_cost: Dictionary = {}
 
 
 
@@ -97,20 +96,26 @@ func update_display() -> void:
 	# Get current counts from player data, using .get() for safety.
 	var current_miners = GameManager.player_data.systems.get("Sol", {}).get("robotics", {}).get("Miner", 0)
 	var current_fabs = GameManager.player_data.systems.get("Sol", {}).get("infrastructure", {}).get("Fabricator", 0)
-	var current_scouts = GameManager.player_data.systems.get("Sol", {}).get("infrastructure", {}).get("Scout", 0)
-	var current_research_bots = GameManager.player_data.systems.get("Sol", {}).get("infrastructure", {}).get("Research Bot", 0)
+	var current_scouts = GameManager.player_data.systems.get("Sol", {}).get("robotics", {}).get("Scout", 0)
+	var current_research_bots = GameManager.player_data.systems.get("Sol", {}).get("infrastructure", {}).get("Research", 0)
 
 	# Calculate current costs based on an exponential growth formula.
 	_current_miner_cost = miner_base_cost * pow(miner_cost_increment, current_miners)
 	_current_fab_cost = fab_base_cost * pow(fab_cost_increment, current_fabs)
 	_current_scout_cost = scout_base_cost * pow(scout_cost_increment, current_scouts)
-	_current_research_cost = research_base_cost * pow(research_cost_increment, current_research_bots)
+
+	# Calculate the cost for each resource required for the Research Bot.
+	_current_research_cost.clear()
+	for resource in research_base_cost:
+		var base_cost = research_base_cost[resource]
+		_current_research_cost[resource] = base_cost * pow(research_cost_increment, current_research_bots)
 
 	# Update cost labels in the UI.
 	miner_buy_val.text = "%s" % int(_current_miner_cost)
 	fab_buy_val.text = "%s" % int(_current_fab_cost)
 	scout_buy_val.text = "%s" % int(_current_scout_cost)
-	research_buy_val.text = "%s" % int(_current_research_cost)
+	# Format the multi-resource cost for the Research Bot label.
+	research_buy_val.text = _format_multi_resource_cost(_current_research_cost)
 
 	var time_now = Time.get_unix_time_from_system()
 
@@ -177,8 +182,9 @@ func update_display() -> void:
 			research_build_timer.stop()
 		
 		var can_afford_research = true
-		for resource in research_cost_resource:
-			if GameManager.player_data.resources.get(resource, 0.0) < _current_research_cost:
+		for resource in _current_research_cost:
+			var cost = _current_research_cost[resource]
+			if GameManager.player_data.resources.get(resource, 0.0) < cost:
 				can_afford_research = false
 				break
 		research_buy_button.disabled = not can_afford_research
@@ -213,7 +219,7 @@ func _on_buy_scout_pressed() -> void:
 	if player_scout_resource >= _current_scout_cost:
 		GameManager.player_data.resources[scout_cost_resource] -= _current_scout_cost
 		
-		var current_scouts = GameManager.player_data.systems.get("Sol", {}).get("infrastructure", {}).get("Scout", 0)
+		var current_scouts = GameManager.player_data.systems.get("Sol", {}).get("robotics", {}).get("Scout", 0)
 		var build_time = scout_base_build_time * pow(scout_build_time_increment, current_scouts)
 
 		# Apply a 10% build time reduction for each Fabricator.
@@ -225,15 +231,17 @@ func _on_buy_scout_pressed() -> void:
 func _on_buy_research_pressed() -> void:
 	# Check if player can afford all required resources
 	var can_afford = true
-	for resource in research_cost_resource:
-		if GameManager.player_data.resources.get(resource, 0.0) < _current_research_cost:
+	for resource in _current_research_cost:
+		var cost = _current_research_cost[resource]
+		if GameManager.player_data.resources.get(resource, 0.0) < cost:
 			can_afford = false
 			break
 	
 	if can_afford:
 		# Deduct cost for each resource
-		for resource in research_cost_resource:
-			GameManager.player_data.resources[resource] -= _current_research_cost
+		for resource in _current_research_cost:
+			var cost = _current_research_cost[resource]
+			GameManager.player_data.resources[resource] -= cost
 
 		var current_research_bots = GameManager.player_data.systems.get("Sol", {}).get("infrastructure", {}).get("Research", 0)
 		var build_time = research_base_build_time * pow(research_build_time_increment, current_research_bots)
@@ -256,3 +264,12 @@ func _on_scout_build_complete() -> void:
 
 func _on_research_build_complete() -> void:
 	GameManager.complete_build("Research")
+
+
+func _format_multi_resource_cost(costs: Dictionary) -> String:
+	var cost_string_parts: Array[String] = []
+	# Using keys() to ensure consistent order, though dictionary order is stable in Godot 4.
+	for resource in costs.keys():
+		var cost = costs[resource]
+		cost_string_parts.append("%s %s" % [int(cost), resource.substr(0, 1).to_upper()])
+	return ", ".join(cost_string_parts)

@@ -31,8 +31,16 @@ func _notification(what: int) -> void:
 
 func load_game() -> void:
 	if FileAccess.file_exists(SAVE_PATH):
-		player_data = ResourceLoader.load(SAVE_PATH) as PlayerData
-
+		var loaded_resource = ResourceLoader.load(SAVE_PATH)
+		# By duplicating the resource, we ensure we have a unique instance in memory.
+		# This guarantees that when we save, all sub-resources (like scout_findings)
+		# are saved correctly within the main player_data file.
+		if loaded_resource is PlayerData:
+			player_data = loaded_resource.duplicate(true)
+		# This guarantees that when we save, all sub-resources (like scout_findings)
+		# are saved correctly within the main player_data file.
+		if loaded_resource is PlayerData:
+			player_data = loaded_resource.duplicate(true)
 	# If loading was successful, calculate offline progress.
 	if player_data:
 		print("Game data loaded from: ", SAVE_PATH)
@@ -53,7 +61,6 @@ func save_game() -> void:
 	# Update the timestamp right before saving.
 	@warning_ignore("narrowing_conversion")
 	player_data.last_save_timestamp = Time.get_unix_time_from_system()
-
 	var error = ResourceSaver.save(player_data, SAVE_PATH)
 	if error == OK:
 		print("Game data saved successfully.")
@@ -76,15 +83,17 @@ func add_resource(resource_name: String, amount: float, p_emit_signal: bool = tr
 
 func _initialize_new_game_state() -> void:
 	# Set up the default state for a brand new player.
-	player_data.resources = {"metals": 100.0, "polymers": 50.0, "organics": 0.0, "crystals": 0.0}
+	player_data.resources = {"metals": 100.0, "polymers": 50.0, "organics": 0.0, "crystals": 0.0, "research_points": 0.0}
 	player_data.systems = {
 		"Sol": {
 			"robotics": {
-				"Miner": 1
+				"Miner": 1,
+				"Scout": 1
 			},
 			"infrastructure": {
-				"Fabricator": 1
-			}
+				"Fabricator": 1,
+				"Research": 1
+			},
 		}
 	}
 	player_data.build_queue = {}
@@ -179,7 +188,7 @@ func add_fabricator() -> void:
 	_add_system_unit("Sol", "infrastructure", "Fabricator", 1, false)
 
 func add_scout() -> void:
-	_add_system_unit("Sol", "infrastructure", "Scout", 1, false)
+	_add_system_unit("Sol", "robotics", "Scout", 1, false)
 
 func add_research_bot() -> void:
 	_add_system_unit("Sol", "infrastructure", "Research", 1, false)
@@ -207,27 +216,70 @@ func complete_build(unit_name: String, p_emit_signal: bool = true) -> void:
 		player_data_updated.emit()
 
 
-func start_scouting_mission(duration_seconds: float) -> bool:
+func start_scouting_mission(mission_index: int, duration_seconds: int, reward_scout_count: int) -> bool:
 	if not player_data or not player_data.scout_findings: return false
 	if player_data.scout_findings.is_mission_active(): return false # Mission already in progress
 
-	var scout_count = player_data.systems.get("Sol", {}).get("infrastructure", {}).get("Scout", 0)
+	var scout_count = player_data.systems.get("Sol", {}).get("robotics", {}).get("Scout", 0)
 	if scout_count == 0: return false # No scouts to send
 
-	player_data.scout_findings.mission_completion_timestamp = Time.get_unix_time_from_system() + duration_seconds
+	var findings = player_data.scout_findings
+	findings.mission_completion_timestamp = Time.get_unix_time_from_system() + duration_seconds
+	findings.active_mission_index = mission_index
+	findings.active_mission_reward_scouts = reward_scout_count
+	
 	player_data_updated.emit()
 	return true
 
 
 func complete_scouting_mission(p_emit_signal: bool = true) -> void:
 	if not player_data or not player_data.scout_findings: return
-	var scout_count = player_data.systems.get("Sol", {}).get("infrastructure", {}).get("Scout", 0)
-	var new_asteroid = player_data.scout_findings.generate_new_asteroid(scout_count)
-	player_data.scout_findings.discovered_asteroids.append(new_asteroid)
-	player_data.scout_findings.mission_completion_timestamp = 0
+	var findings = player_data.scout_findings
+	
+	# Use the reward scout count that was stored when the mission started.
+	var new_asteroid = findings.generate_new_asteroid(findings.active_mission_reward_scouts)
+	findings.discovered_asteroids.append(new_asteroid)
+	
+	# If there was no active asteroid, promote the one we just found.
+	if findings.is_active_asteroid_depleted():
+		findings.promote_next_asteroid()
+		
+	findings.mission_completion_timestamp = 0
+	findings.active_mission_index = -1
+	findings.active_mission_reward_scouts = 0
 	if p_emit_signal:
 		player_data_updated.emit()
 
+
+func purchase_global_upgrade(upgrade_id: String, cost: Dictionary) -> bool:
+	if not player_data: return false
+	
+	# Double-check affordability (UI should prevent this, but good for safety)
+	for resource in cost:
+		if player_data.resources.get(resource, 0.0) < cost[resource]:
+			printerr("Attempted to purchase upgrade '%s' without enough resources." % upgrade_id)
+			return false
+	
+	# Deduct cost
+	for resource in cost:
+		player_data.resources[resource] -= cost[resource]
+	
+	# Grant upgrade
+	player_data.global_upgrades.keys().append(upgrade_id)
+	
+	player_data_updated.emit()
+	return true
+
+
+func cycle_active_asteroid() -> void:
+	if not player_data or not player_data.scout_findings: return
+	
+	if player_data.scout_findings.promote_next_asteroid():
+		print("Promoted next asteroid from queue.")
+	else:
+		print("Asteroid queue is empty. Active asteroid cleared.")
+	
+	player_data_updated.emit()
 
 ## Grants a unit and removes it from the build queue. Does not emit a signal.
 func _grant_completed_unit(unit_name: String) -> void:
@@ -257,16 +309,41 @@ func _on_tick(delta: float) -> void:
 	# Calculate potential resources mined this tick
 	var miner_count = player_data.systems.get("Sol", {}).get("robotics", {}).get("Miner", 0)
 	if miner_count == 0: return
+	
+	# Calculate research points generated this tick
+	var research_bot_count = player_data.systems.get("Sol", {}).get("infrastructure", {}).get("Research", 0)
+	if research_bot_count > 0:
+		add_resource("research_points", delta * research_bot_count * 0.1, false) # 0.1 RP per bot per second
 
+	# Calculate miner efficiency from upgrades
+	var miner_efficiency_multiplier := 1.0
+	# Note: The descriptions for these upgrades in global_upgrades.gd mention cost reduction,
+	# but here we are implementing an efficiency boost. You may want to update the descriptions.
+	if player_data.has_upgrade("miner_1"):
+		miner_efficiency_multiplier += 0.5 # +50% efficiency
+	if player_data.has_upgrade("miner_2"):
+		miner_efficiency_multiplier += 0.5 # +50% efficiency
+	if player_data.has_upgrade("miner_3"):
+		miner_efficiency_multiplier += 1.5 # +150% efficiency
+
+	# Calculate potential resources mined this tick, including the efficiency bonus
+	var base_yield :float = delta * miner_count * miner_efficiency_multiplier
 	var potential_yield := {
-		"metals": delta * miner_count * 1.0,
-		"polymers": delta * miner_count * 0.2,
-		"organics": delta * miner_count * 0.1,
-		"crystals": delta * miner_count * 0.05
+		"metals": base_yield * 1.0,
+		"polymers": base_yield * 0.2,
+		"organics": base_yield * 0.1,
+		"crystals": base_yield * 0.05
 	}
-
 	var mined_resources = player_data.scout_findings.mine_resources(potential_yield)
+	var state_changed = not mined_resources.is_empty()
+
 	for resource_name in mined_resources:
 		add_resource(resource_name, mined_resources[resource_name], false)
-	if not mined_resources.is_empty():
+
+	# Check for depletion after mining and promote the next asteroid if available.
+	if state_changed and player_data.scout_findings.is_active_asteroid_depleted():
+		if player_data.scout_findings.promote_next_asteroid():
+			print("Active asteroid depleted. Promoting next from queue.")
+
+	if state_changed:
 		player_data_updated.emit()

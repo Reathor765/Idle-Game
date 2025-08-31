@@ -1,0 +1,435 @@
+[gd_scene load_steps=2 format=3 uid="uid://snol76knvvbq"]
+
+[ext_resource type="Script" uid="uid://dt6vva3q1ci0v" path="res://Scripts/global_upgrades.gd" id="1_55gqh"]
+
+[node name="GlobalUpgrades" type="Control"]
+layout_mode = 3
+anchor_top = 0.749625
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.47998047
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_55gqh")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -160.0
+offset_right = 360.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TickTimeUpgrade" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="AsteroidUpgrade" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="MinerUpgrade" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="FabricatorUpgrade" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="ScoutUpgrade" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="ResearchUpgrade" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TickTimeUpgrade2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="AsteroidUpgrade2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="MinerUpgrade2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="FabricatorUpgrade2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="ScoutUpgrade2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="ResearchUpgrade2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="TickTimeUpgrade3" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="AsteroidUpgrade3" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="MinerUpgrade3" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="FabricatorUpgrade3" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="ScoutUpgrade3" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="ResearchUpgrade3" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="TickTimeUpgrade4" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer4"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="AsteroidUpgrade4" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer4"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="MinerUpgrade4" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer4"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="FabricatorUpgrade4" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer4"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="ScoutUpgrade4" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer4"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="ResearchUpgrade4" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer4"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="TickTimeUpgrade5" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer5"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="AsteroidUpgrade5" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer5"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="MinerUpgrade5" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer5"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="FabricatorUpgrade5" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer5"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="ScoutUpgrade5" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer5"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="ResearchUpgrade5" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer5"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="TickTimeUpgrade6" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer6"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="AsteroidUpgrade6" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer6"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="MinerUpgrade6" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer6"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="FabricatorUpgrade6" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer6"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="ScoutUpgrade6" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer6"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="ResearchUpgrade6" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer6"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="VBoxContainer7" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="TickTimeUpgrade7" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer7"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="AsteroidUpgrade7" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer7"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="MinerUpgrade7" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer7"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="FabricatorUpgrade7" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer7"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="ScoutUpgrade7" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer7"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="ResearchUpgrade7" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer7"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true

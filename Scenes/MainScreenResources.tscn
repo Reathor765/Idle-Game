@@ -1,0 +1,228 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt2w8ai0578jg"]
+
+[ext_resource type="Script" uid="uid://dd2tdiigavcrc" path="res://Scripts/Resource_control.gd" id="1_yd4co"]
+
+[node name="Resources" type="Control" node_paths=PackedStringArray("resource_name_labels", "resource_value_labels", "robotics_name_labels", "robotics_value_labels")]
+layout_mode = 3
+anchor_left = 0.030833334
+anchor_top = 0.03525
+anchor_right = 0.72066665
+anchor_bottom = 0.15187499
+offset_left = -0.20000076
+offset_top = -0.12000275
+offset_right = 0.11999512
+offset_bottom = -0.3999939
+script = ExtResource("1_yd4co")
+resource_name_labels = [NodePath("MarginContainer/BoxContainer/Resource1"), NodePath("MarginContainer/BoxContainer/Resrouce2"), NodePath("MarginContainer/BoxContainer/Resrouce3"), NodePath("MarginContainer/BoxContainer/Resource4")]
+resource_value_labels = [NodePath("MarginContainer2/BoxContainer/Total1"), NodePath("MarginContainer2/BoxContainer/Total2"), NodePath("MarginContainer2/BoxContainer/Total3"), NodePath("MarginContainer2/BoxContainer/Total4")]
+robotics_name_labels = [NodePath("MarginContainer4/BoxContainer/Resource1"), NodePath("MarginContainer4/BoxContainer/Resrouce2"), NodePath("MarginContainer4/BoxContainer/Resrouce3"), NodePath("MarginContainer4/BoxContainer/Resource4")]
+robotics_value_labels = [NodePath("MarginContainer3/BoxContainer/Total1"), NodePath("MarginContainer3/BoxContainer/Total2"), NodePath("MarginContainer3/BoxContainer/Total3"), NodePath("MarginContainer3/BoxContainer/Total4")]
+displayed_resources = Array[String](["metals", "polymers", "organics", "crystals"])
+displayed_systems = Array[String](["Miner", "Fabricator", "Scout", "Research"])
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.009000001
+anchor_top = 0.019000001
+anchor_right = 0.26900002
+anchor_bottom = 0.93200004
+offset_left = 0.04200077
+offset_top = 0.009000063
+offset_right = -0.12400818
+offset_bottom = -0.028015137
+
+[node name="BoxContainer" type="BoxContainer" parent="MarginContainer"]
+layout_mode = 2
+vertical = true
+
+[node name="ResourceLabel" type="RichTextLabel" parent="MarginContainer/BoxContainer"]
+custom_minimum_size = Vector2(138, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Resources"
+horizontal_alignment = 1
+
+[node name="Resource1" type="RichTextLabel" parent="MarginContainer/BoxContainer"]
+custom_minimum_size = Vector2(138, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Resource 1"
+horizontal_alignment = 1
+
+[node name="Resrouce2" type="RichTextLabel" parent="MarginContainer/BoxContainer"]
+custom_minimum_size = Vector2(138, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Resource 2"
+horizontal_alignment = 1
+
+[node name="Resrouce3" type="RichTextLabel" parent="MarginContainer/BoxContainer"]
+custom_minimum_size = Vector2(138, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Resource 3"
+horizontal_alignment = 1
+
+[node name="Resource4" type="RichTextLabel" parent="MarginContainer/BoxContainer"]
+custom_minimum_size = Vector2(138, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Resource 4"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.275
+anchor_top = 0.030000001
+anchor_right = 0.48058352
+anchor_bottom = 0.93299997
+offset_left = -2.675003
+offset_top = -1.4700003
+offset_right = 0.1499939
+offset_bottom = -0.016998291
+metadata/_edit_use_anchors_ = true
+
+[node name="BoxContainer" type="BoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+vertical = true
+
+[node name="ResourceTotals" type="RichTextLabel" parent="MarginContainer2/BoxContainer"]
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Total"
+horizontal_alignment = 1
+
+[node name="Total1" type="RichTextLabel" parent="MarginContainer2/BoxContainer"]
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Total 1"
+horizontal_alignment = 1
+
+[node name="Total2" type="RichTextLabel" parent="MarginContainer2/BoxContainer"]
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Total 2"
+horizontal_alignment = 1
+
+[node name="Total3" type="RichTextLabel" parent="MarginContainer2/BoxContainer"]
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Total 3"
+horizontal_alignment = 1
+
+[node name="Total4" type="RichTextLabel" parent="MarginContainer2/BoxContainer"]
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Total 4"
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7880784
+anchor_top = 0.030000001
+anchor_right = 0.993662
+anchor_bottom = 0.93299997
+offset_left = -2.675003
+offset_top = -1.4700003
+offset_right = 0.1499939
+offset_bottom = -0.016998291
+metadata/_edit_use_anchors_ = true
+
+[node name="BoxContainer" type="BoxContainer" parent="MarginContainer3"]
+layout_mode = 2
+vertical = true
+
+[node name="ResourceTotals" type="RichTextLabel" parent="MarginContainer3/BoxContainer"]
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Total"
+horizontal_alignment = 1
+
+[node name="Total1" type="RichTextLabel" parent="MarginContainer3/BoxContainer"]
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Total 1"
+horizontal_alignment = 1
+
+[node name="Total2" type="RichTextLabel" parent="MarginContainer3/BoxContainer"]
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Total 2"
+horizontal_alignment = 1
+
+[node name="Total3" type="RichTextLabel" parent="MarginContainer3/BoxContainer"]
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Total 3"
+horizontal_alignment = 1
+
+[node name="Total4" type="RichTextLabel" parent="MarginContainer3/BoxContainer"]
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Total 4"
+horizontal_alignment = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.009000001
+anchor_top = 0.019000001
+anchor_right = 0.26900002
+anchor_bottom = 0.93200004
+offset_left = 243.473
+offset_top = 0.16899991
+offset_right = 243.30699
+offset_bottom = 0.13198853
+
+[node name="BoxContainer" type="BoxContainer" parent="MarginContainer4"]
+layout_mode = 2
+vertical = true
+
+[node name="ResourceLabel" type="RichTextLabel" parent="MarginContainer4/BoxContainer"]
+custom_minimum_size = Vector2(138, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Robotics"
+horizontal_alignment = 1
+
+[node name="Resource1" type="RichTextLabel" parent="MarginContainer4/BoxContainer"]
+custom_minimum_size = Vector2(138, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Robotics 1"
+horizontal_alignment = 1
+
+[node name="Resrouce2" type="RichTextLabel" parent="MarginContainer4/BoxContainer"]
+custom_minimum_size = Vector2(138, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Robotics 2"
+horizontal_alignment = 1
+
+[node name="Resrouce3" type="RichTextLabel" parent="MarginContainer4/BoxContainer"]
+custom_minimum_size = Vector2(138, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Robotics 3"
+horizontal_alignment = 1
+
+[node name="Resource4" type="RichTextLabel" parent="MarginContainer4/BoxContainer"]
+custom_minimum_size = Vector2(138, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Robotics 4"
+horizontal_alignment = 1

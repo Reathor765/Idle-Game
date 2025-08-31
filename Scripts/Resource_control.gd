@@ -77,7 +77,7 @@ func update_display() -> void:
 			elif system_name == "Fabricator":
 				system_value = player_robotics.get("Sol", {}).get("infrastructure", {}).get("Fabricator", 0)
 			elif system_name == "Scout":
-				system_value = player_robotics.get("Sol", {}).get("infrastructure", {}).get("Scout", 0)
+				system_value = player_robotics.get("Sol", {}).get("robotics", {}).get("Scout", 0)
 			elif system_name == "Research":
 				system_value = player_robotics.get("Sol", {}).get("infrastructure", {}).get("Research", 0)
 			# Add more elifs for other systems as needed

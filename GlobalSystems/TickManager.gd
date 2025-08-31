@@ -52,7 +52,7 @@ func _calculate_tick_interval() -> float:
 	if not GameManager.player_data:
 		return BASE_TICK_INTERVAL
 
-	var tick_speed_level: int = GameManager.player_data.global_upgrades.get("tick_speed", 0)
+	var tick_speed_level: int = GameManager.player_data.global_upgrades.get("tick_time_1", 0)
 	var new_interval := BASE_TICK_INTERVAL / pow(1.1, tick_speed_level)
 
 	return max(new_interval, MIN_TICK_INTERVAL)

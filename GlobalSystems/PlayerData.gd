@@ -34,3 +34,8 @@ class_name PlayerData
 
 # Stores the Unix timestamp of the last time the game was saved. Used for offline progress.
 @export var last_save_timestamp: int = 0
+
+
+# Helper function to easily check if an upgrade has been purchased.
+func has_upgrade(upgrade_id: String) -> bool:
+	return upgrade_id in global_upgrades

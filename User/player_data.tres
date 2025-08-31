@@ -1,25 +1,34 @@
-[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3 uid="uid://dnxtx247bqfh3"]
+[gd_resource type="Resource" script_class="PlayerData" load_steps=3 format=3]
 
-[ext_resource type="Script" uid="uid://1lm2x26m8n6" path="res://GlobalSystems/PlayerData.gd" id="1_r0vi1"]
+[ext_resource type="Script" path="res://GlobalSystems/PlayerData.gd" id="1_r0vi1"]
+[ext_resource type="Resource" path="res://User/ScoutFindings.tres" id="1_u02aw"]
 
 [resource]
 script = ExtResource("1_r0vi1")
 resources = {
-"crystals": 52897.46187500476,
-"metals": 249967.1844134455,
-"organics": 65002.43500000952,
-"polymers": 81573.35705604083
+"crystals": 1385.5829687547591,
+"metals": 17491.844497659637,
+"organics": 33831.01369873999,
+"polymers": 6342.504785499808,
+"research_points": 2.0
 }
 systems = {
 "Sol": {
 "infrastructure": {
-"Fabricator": 9,
-"Research": 1,
-"Scout": 5
+"Fabricator": 17,
+"Research": 2
 },
 "robotics": {
-"Miner": 15
+"Miner": 45,
+"Scout": 6.0
 }
 }
 }
-last_save_timestamp = 1756424683
+build_queue = {
+"Fabricator": {
+"completion_timestamp": 1756597082.400406,
+"total_build_time": 101.08940569985887
+}
+}
+scout_findings = ExtResource("1_u02aw")
+last_save_timestamp = 1756597007

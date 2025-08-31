@@ -1,0 +1,350 @@
+[gd_scene load_steps=2 format=3 uid="uid://d06uufokco4"]
+
+[ext_resource type="Script" uid="uid://beumfjndgbeg8" path="res://Scripts/robotics.gd" id="1_v7ihp"]
+
+[node name="Robotics" type="Control"]
+layout_mode = 3
+anchor_left = -0.00027775235
+anchor_top = 0.20071876
+anchor_right = 1.0003334
+anchor_bottom = 0.5
+offset_left = 0.19998169
+offset_top = 0.07998657
+offset_right = -0.24005127
+offset_bottom = 1.9999695
+script = ExtResource("1_v7ihp")
+metadata/_edit_use_anchors_ = true
+
+[node name="FabricatorLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 24.0
+grow_horizontal = 2
+text = "Robotics"
+horizontal_alignment = 1
+
+[node name="Mining" type="Node" parent="."]
+
+[node name="AsteroidMiner" type="RichTextLabel" parent="Mining"]
+custom_minimum_size = Vector2(134.56, 24)
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -346.0
+offset_right = -207.44
+offset_bottom = -322.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Asteroid Miners"
+
+[node name="MinerCost" type="HBoxContainer" parent="Mining"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.0
+offset_top = -346.5
+offset_right = -83.0
+offset_bottom = -322.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Mining/MinerCost"]
+custom_minimum_size = Vector2(40, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Cost"
+
+[node name="MinerBuyVal" type="RichTextLabel" parent="Mining/MinerCost"]
+custom_minimum_size = Vector2(80, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "value"
+
+[node name="MinerBuyButton" type="Button" parent="Mining"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -346.5
+offset_right = -10.0
+offset_bottom = -315.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Buy"
+
+[node name="MinerProgressBar" type="ProgressBar" parent="Mining"]
+custom_minimum_size = Vector2(200, 0)
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 27.0
+offset_top = -346.5
+offset_right = 227.0
+offset_bottom = -319.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BuildTimer" type="Timer" parent="Mining/MinerProgressBar"]
+wait_time = 30.000000000000004
+one_shot = true
+ignore_time_scale = true
+
+[node name="Fabrication" type="Node" parent="."]
+
+[node name="ShipFabricator" type="RichTextLabel" parent="Fabrication"]
+custom_minimum_size = Vector2(100, 24)
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -281.5
+offset_right = -242.0
+offset_bottom = -257.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Fabricators"
+
+[node name="FabCost" type="HBoxContainer" parent="Fabrication"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -282.0
+offset_right = -68.0
+offset_bottom = -258.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Fabrication/FabCost"]
+custom_minimum_size = Vector2(40, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Cost"
+
+[node name="FabBuyVal" type="RichTextLabel" parent="Fabrication/FabCost"]
+custom_minimum_size = Vector2(80, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "value"
+
+[node name="FabBuyButton" type="Button" parent="Fabrication"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -282.0
+offset_right = -10.0
+offset_bottom = -251.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Buy"
+
+[node name="FabProgressBar" type="ProgressBar" parent="Fabrication"]
+custom_minimum_size = Vector2(200, 0)
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 27.0
+offset_top = -282.0
+offset_right = 227.0
+offset_bottom = -255.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BuildTimer" type="Timer" parent="Fabrication/FabProgressBar"]
+wait_time = 180.0
+one_shot = true
+ignore_time_scale = true
+
+[node name="Scout Drone" type="Node" parent="."]
+
+[node name="DroneLabel" type="RichTextLabel" parent="Scout Drone"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -214.0
+offset_right = -241.0
+offset_bottom = -189.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Scout Drone"
+
+[node name="DroneCost" type="HBoxContainer" parent="Scout Drone"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -214.0
+offset_right = -68.0
+offset_bottom = -190.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Scout Drone/DroneCost"]
+custom_minimum_size = Vector2(40, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Cost"
+
+[node name="DroneBuyVal" type="RichTextLabel" parent="Scout Drone/DroneCost"]
+custom_minimum_size = Vector2(80, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "value"
+
+[node name="DroneBuyButton" type="Button" parent="Scout Drone"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -214.0
+offset_right = -10.0
+offset_bottom = -183.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Buy"
+
+[node name="DroneProgressBar" type="ProgressBar" parent="Scout Drone"]
+custom_minimum_size = Vector2(200, 0)
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 27.0
+offset_top = -214.0
+offset_right = 227.0
+offset_bottom = -187.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BuildTimer" type="Timer" parent="Scout Drone/DroneProgressBar"]
+wait_time = 180.0
+one_shot = true
+ignore_time_scale = true
+
+[node name="Research Bots" type="Node" parent="."]
+
+[node name="ResearchLabel" type="RichTextLabel" parent="Research Bots"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -150.0
+offset_right = -224.0
+offset_bottom = -124.99866
+grow_horizontal = 2
+grow_vertical = 2
+text = "Research Bots"
+
+[node name="ResearchCost" type="HBoxContainer" parent="Research Bots"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -185.0
+offset_right = -68.0
+offset_bottom = -88.99573
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Research Bots/ResearchCost"]
+custom_minimum_size = Vector2(40, 95)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Cost"
+vertical_alignment = 1
+
+[node name="ResearchBuyVal" type="RichTextLabel" parent="Research Bots/ResearchCost"]
+custom_minimum_size = Vector2(80, 96)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "value"
+fit_content = true
+
+[node name="ResearchBuyButton" type="Button" parent="Research Bots"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -150.0
+offset_right = -10.0
+offset_bottom = -118.99487
+grow_horizontal = 2
+grow_vertical = 2
+text = "Buy"
+
+[node name="ResearchProgressBar" type="ProgressBar" parent="Research Bots"]
+custom_minimum_size = Vector2(200, 0)
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 27.0
+offset_top = -150.0
+offset_right = 227.0
+offset_bottom = -122.99695
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BuildTimer" type="Timer" parent="Research Bots/ResearchProgressBar"]
+wait_time = 180.0
+one_shot = true
+ignore_time_scale = true

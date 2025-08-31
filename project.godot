@@ -19,12 +19,14 @@ config/icon="res://icon.svg"
 
 GameManager="*res://GlobalSystems/GameManager.gd"
 TickManager="*res://GlobalSystems/TickManager.gd"
+SaveManager="*res://GlobalSystems/SaveManager.gd"
 
 [display]
 
 window/size/viewport_width=720
 window/size/viewport_height=1280
 window/stretch/mode="canvas_items"
+window/handheld/orientation=6
 
 [dotnet]
 
@@ -33,3 +35,4 @@ project/assembly_name="Idle-Game"
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
