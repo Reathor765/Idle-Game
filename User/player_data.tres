@@ -6,29 +6,23 @@
 [resource]
 script = ExtResource("1_r0vi1")
 resources = {
-"crystals": 1385.5829687547591,
-"metals": 17491.844497659637,
-"organics": 33831.01369873999,
-"polymers": 6342.504785499808,
-"research_points": 2.0
+"crystals": 2803.064805908194,
+"metals": 114691.41083731549,
+"organics": 65835.30819897173,
+"polymers": 55976.44665103856,
+"research_points": 4324.0
 }
 systems = {
 "Sol": {
 "infrastructure": {
-"Fabricator": 17,
+"Fabricator": 20,
 "Research": 2
 },
 "robotics": {
-"Miner": 45,
-"Scout": 6.0
+"Miner": 48,
+"Scout": 9.0
 }
-}
-}
-build_queue = {
-"Fabricator": {
-"completion_timestamp": 1756597082.400406,
-"total_build_time": 101.08940569985887
 }
 }
 scout_findings = ExtResource("1_u02aw")
-last_save_timestamp = 1756597007
+last_save_timestamp = 1756687985

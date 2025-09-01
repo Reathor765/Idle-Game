@@ -4,19 +4,24 @@
 
 [node name="Missions" type="Control"]
 layout_mode = 3
-anchor_top = 0.455
+anchor_top = 0.441
 anchor_right = 1.0
-anchor_bottom = 0.455
-offset_top = 0.5999756
-offset_bottom = 400.59998
+anchor_bottom = 0.441
+offset_top = 0.5199585
+offset_bottom = 418.51996
 script = ExtResource("1_qgl17")
 mis_1_duration = 5
 mis_2_duration = 5
 mis_3_duration = 5
 
-[node name="MissionSlot1" type="Node" parent="."]
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 394.0
 
-[node name="Mission1Label" type="RichTextLabel" parent="MissionSlot1"]
+[node name="MissionSlot1" type="Node" parent="Panel"]
+
+[node name="Mission1Label" type="RichTextLabel" parent="Panel/MissionSlot1"]
 custom_minimum_size = Vector2(80, 24)
 anchors_preset = -1
 anchor_left = 0.015000001
@@ -30,21 +35,19 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Mission 1"
 
-[node name="Button" type="Button" parent="MissionSlot1"]
+[node name="Button" type="Button" parent="Panel/MissionSlot1"]
 anchors_preset = -1
-anchor_left = 0.21200001
-anchor_top = 0.455
-anchor_right = 0.351
-anchor_bottom = 0.509
-offset_left = 0.35998535
-offset_top = -5.4000244
-offset_right = 0.27999878
-offset_bottom = -6.5200195
+anchor_left = 0.21100001
+anchor_top = 0.45000002
+anchor_right = 0.356
+anchor_bottom = 0.5
+offset_left = 0.07998657
+offset_right = -0.32000732
 metadata/_edit_use_anchors_ = true
 
-[node name="MissionSlot2" type="Node" parent="."]
+[node name="MissionSlot2" type="Node" parent="Panel"]
 
-[node name="Mission2Label" type="RichTextLabel" parent="MissionSlot2"]
+[node name="Mission2Label" type="RichTextLabel" parent="Panel/MissionSlot2"]
 custom_minimum_size = Vector2(80, 24)
 anchors_preset = -1
 anchor_left = 0.015000001
@@ -59,21 +62,19 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Mission 2"
 
-[node name="Button2" type="Button" parent="MissionSlot2"]
+[node name="Button2" type="Button" parent="Panel/MissionSlot2"]
 anchors_preset = -1
-anchor_left = 0.21700001
-anchor_top = 0.55200005
+anchor_left = 0.21200001
+anchor_top = 0.55
 anchor_right = 0.356
-anchor_bottom = 0.605
-offset_left = -3.2400055
-offset_top = -2.5600586
-offset_right = -3.3200073
-offset_bottom = -2.4000244
+anchor_bottom = 0.6
+offset_left = -0.64001465
+offset_right = -0.32000732
 metadata/_edit_use_anchors_ = true
 
-[node name="MissionSlot3" type="Node" parent="."]
+[node name="MissionSlot3" type="Node" parent="Panel"]
 
-[node name="Mission3Label" type="RichTextLabel" parent="MissionSlot3"]
+[node name="Mission3Label" type="RichTextLabel" parent="Panel/MissionSlot3"]
 custom_minimum_size = Vector2(80, 24)
 anchors_preset = -1
 anchor_left = 0.015000001
@@ -89,85 +90,93 @@ grow_vertical = 2
 text = "Mission 3"
 metadata/_edit_use_anchors_ = true
 
-[node name="Button3" type="Button" parent="MissionSlot3"]
+[node name="Button3" type="Button" parent="Panel/MissionSlot3"]
 anchors_preset = -1
-anchor_left = 0.21200001
-anchor_top = 0.651
-anchor_right = 0.351
-anchor_bottom = 0.70400006
-offset_left = 0.35998535
-offset_top = -0.2800293
-offset_right = 0.27999878
-offset_bottom = -0.12005615
+anchor_left = 0.21100001
+anchor_top = 0.65000004
+anchor_right = 0.356
+anchor_bottom = 0.7007813
+offset_left = 0.07998657
+offset_top = -6.1035156e-05
+offset_right = -0.32000732
+offset_bottom = -1.000061
 metadata/_edit_use_anchors_ = true
 
-[node name="CurrentAsteroid" type="VBoxContainer" parent="."]
+[node name="CurrentAsteroid" type="VBoxContainer" parent="Panel"]
 layout_mode = 0
 offset_left = 423.0
-offset_top = -4.0
+offset_top = 12.0
 offset_right = 652.95
-offset_bottom = 141.4801
+offset_bottom = 206.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CurrentAsteroid"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CurrentAsteroid"]
 custom_minimum_size = Vector2(100, 24)
 layout_mode = 2
 text = "Current Asteroid"
 horizontal_alignment = 1
 
-[node name="Resource1" type="HBoxContainer" parent="CurrentAsteroid"]
+[node name="Resource1" type="HBoxContainer" parent="Panel/CurrentAsteroid"]
 layout_mode = 2
 
-[node name="Name1" type="RichTextLabel" parent="CurrentAsteroid/Resource1"]
+[node name="Name1" type="RichTextLabel" parent="Panel/CurrentAsteroid/Resource1"]
 custom_minimum_size = Vector2(100, 24)
 layout_mode = 2
 text = "Resource1"
 
-[node name="Value1" type="RichTextLabel" parent="CurrentAsteroid/Resource1"]
+[node name="Value1" type="RichTextLabel" parent="Panel/CurrentAsteroid/Resource1"]
 custom_minimum_size = Vector2(100, 24)
 layout_mode = 2
 text = "0.0"
 
-[node name="Resource2" type="HBoxContainer" parent="CurrentAsteroid"]
+[node name="Resource2" type="HBoxContainer" parent="Panel/CurrentAsteroid"]
 layout_mode = 2
 
-[node name="Name2" type="RichTextLabel" parent="CurrentAsteroid/Resource2"]
+[node name="Name2" type="RichTextLabel" parent="Panel/CurrentAsteroid/Resource2"]
 custom_minimum_size = Vector2(100, 24)
 layout_mode = 2
 text = "Resource 2"
 
-[node name="Value2" type="RichTextLabel" parent="CurrentAsteroid/Resource2"]
+[node name="Value2" type="RichTextLabel" parent="Panel/CurrentAsteroid/Resource2"]
 custom_minimum_size = Vector2(100, 24)
 layout_mode = 2
 text = "0.0"
 
-[node name="Resource3" type="HBoxContainer" parent="CurrentAsteroid"]
+[node name="Resource3" type="HBoxContainer" parent="Panel/CurrentAsteroid"]
 layout_mode = 2
 
-[node name="Name3" type="RichTextLabel" parent="CurrentAsteroid/Resource3"]
+[node name="Name3" type="RichTextLabel" parent="Panel/CurrentAsteroid/Resource3"]
 custom_minimum_size = Vector2(100, 24)
 layout_mode = 2
 text = "Resource 3"
 
-[node name="Value3" type="RichTextLabel" parent="CurrentAsteroid/Resource3"]
+[node name="Value3" type="RichTextLabel" parent="Panel/CurrentAsteroid/Resource3"]
 custom_minimum_size = Vector2(100, 24)
 layout_mode = 2
 text = "0.0"
 
-[node name="Resource4" type="HBoxContainer" parent="CurrentAsteroid"]
+[node name="Resource4" type="HBoxContainer" parent="Panel/CurrentAsteroid"]
 layout_mode = 2
 
-[node name="Name4" type="RichTextLabel" parent="CurrentAsteroid/Resource4"]
+[node name="Name4" type="RichTextLabel" parent="Panel/CurrentAsteroid/Resource4"]
 custom_minimum_size = Vector2(100, 24)
 layout_mode = 2
 text = "Resource4"
 
-[node name="Value4" type="RichTextLabel" parent="CurrentAsteroid/Resource4"]
+[node name="Value4" type="RichTextLabel" parent="Panel/CurrentAsteroid/Resource4"]
 custom_minimum_size = Vector2(100, 24)
 layout_mode = 2
 text = "0.0"
 
-[node name="ReleaseAsteroid" type="Button" parent="CurrentAsteroid"]
+[node name="ReleaseAsteroid" type="Button" parent="Panel/CurrentAsteroid"]
 layout_mode = 2
 text = "Release
 Asteroid"
 metadata/_edit_use_anchors_ = true
+
+[node name="ShowUpgradePanel" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 267.0
+offset_right = 652.0
+offset_bottom = 331.0
+text = "Upgrades"

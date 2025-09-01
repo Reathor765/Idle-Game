@@ -5,21 +5,22 @@ extends Control
 # It works with a ScoutFindings resource to manage the state of missions and rewards.
 
 # --- Node References ---
-@onready var mission_1_label: RichTextLabel = $MissionSlot1/Mission1Label
-@onready var mission_2_label: RichTextLabel = $MissionSlot2/Mission2Label
-@onready var mission_3_label: RichTextLabel = $MissionSlot3/Mission3Label
-@onready var button_1: Button = $MissionSlot1/Button
-@onready var button_2: Button = $MissionSlot2/Button2
-@onready var button_3: Button = $MissionSlot3/Button3
-@onready var name_1: RichTextLabel = $CurrentAsteroid/Resource1/Name1
-@onready var value_1: RichTextLabel = $CurrentAsteroid/Resource1/Value1
-@onready var name_2: RichTextLabel = $CurrentAsteroid/Resource2/Name2
-@onready var value_2: RichTextLabel = $CurrentAsteroid/Resource2/Value2
-@onready var name_3: RichTextLabel = $CurrentAsteroid/Resource3/Name3
-@onready var value_3: RichTextLabel = $CurrentAsteroid/Resource3/Value3
-@onready var name_4: RichTextLabel = $CurrentAsteroid/Resource4/Name4
-@onready var value_4: RichTextLabel = $CurrentAsteroid/Resource4/Value4
-@onready var release_asteroid: Button = $CurrentAsteroid/ReleaseAsteroid
+@onready var mission_1_label: RichTextLabel = $Panel/MissionSlot1/Mission1Label
+@onready var mission_2_label: RichTextLabel = $Panel/MissionSlot2/Mission2Label
+@onready var mission_3_label: RichTextLabel = $Panel/MissionSlot3/Mission3Label
+@onready var button_1: Button = $Panel/MissionSlot1/Button
+@onready var button_2: Button = $Panel/MissionSlot2/Button2
+@onready var button_3: Button = $Panel/MissionSlot3/Button3
+@onready var name_1: RichTextLabel = $Panel/CurrentAsteroid/Resource1/Name1
+@onready var value_1: RichTextLabel = $Panel/CurrentAsteroid/Resource1/Value1
+@onready var name_2: RichTextLabel = $Panel/CurrentAsteroid/Resource2/Name2
+@onready var value_2: RichTextLabel = $Panel/CurrentAsteroid/Resource2/Value2
+@onready var name_3: RichTextLabel = $Panel/CurrentAsteroid/Resource3/Name3
+@onready var value_3: RichTextLabel = $Panel/CurrentAsteroid/Resource3/Value3
+@onready var name_4: RichTextLabel = $Panel/CurrentAsteroid/Resource4/Name4
+@onready var value_4: RichTextLabel = $Panel/CurrentAsteroid/Resource4/Value4
+@onready var release_asteroid: Button = $Panel/CurrentAsteroid/ReleaseAsteroid
+@onready var show_upgrade_panel: Button = $Panel/ShowUpgradePanel
 
 # --- Mission Configuration ---
 # You can configure the three available missions from the Godot Inspector.
@@ -80,6 +81,7 @@ func _ready() -> void:
 	button_2.pressed.connect(_on_start_mission_pressed.bind(1))
 	button_3.pressed.connect(_on_start_mission_pressed.bind(2))
 	release_asteroid.pressed.connect(_on_release_asteroid_pressed)
+	show_upgrade_panel.pressed.connect(_on_upgrades_window_pressed)
 
 	# Perform the initial UI update.
 	_on_player_data_updated()
@@ -203,3 +205,10 @@ func _format_number(number: int) -> String:
 
 func _on_release_asteroid_pressed() -> void:
 	GameManager.cycle_active_asteroid()
+
+func _on_upgrades_window_pressed() -> void:
+	var parent = self.get_parent()
+	parent.get_tree()
+	parent.find_child("GlobalUpgrades", true, false).visible = true
+	
+	
