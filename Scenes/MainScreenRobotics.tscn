@@ -11,7 +11,21 @@ anchor_bottom = 0.43359375
 offset_left = 0.19998169
 offset_top = 0.07998657
 script = ExtResource("1_v7ihp")
+research_base_cost = {
+"crystals": 100.0,
+"metals": 100.0,
+"organics": 100.0,
+"polymers": 100.0
+}
+research_cost_increment = 1.1999999999970896
+research_base_build_time = 20.0
 metadata/_edit_use_anchors_ = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 299.0
+border_width = 3.0
 
 [node name="FabricatorLabel" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(100, 24)
@@ -304,7 +318,7 @@ text = "Cost"
 vertical_alignment = 1
 
 [node name="ResearchBuyVal" type="RichTextLabel" parent="Research Bots/ResearchCost"]
-custom_minimum_size = Vector2(80, 96)
+custom_minimum_size = Vector2(112.83, 96)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -346,9 +360,3 @@ size_flags_vertical = 4
 wait_time = 180.0
 one_shot = true
 ignore_time_scale = true
-
-[node name="ReferenceRect" type="ReferenceRect" parent="."]
-layout_mode = 0
-offset_right = 720.0
-offset_bottom = 299.0
-border_width = 3.0

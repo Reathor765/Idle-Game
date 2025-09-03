@@ -1,30 +1,12 @@
-[gd_resource type="Resource" script_class="ScoutFindings" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="ScoutFindings" load_steps=2 format=3 uid="uid://d3ko8j4adr6ri"]
 
-[ext_resource type="Script" path="res://Scripts/Scout_results.gd" id="1_ntf6r"]
+[ext_resource type="Script" uid="uid://pc8vqclvav6q" path="res://Scripts/Scout_results.gd" id="1_ntf6r"]
 
 [resource]
 script = ExtResource("1_ntf6r")
 active_asteroid = {
-"metals": 0.0,
-"organics": 8116.61000084877,
-"polymers": 16248.22000169754
+"crystals": 36337.0,
+"metals": 3989315.0,
+"organics": 789822.0,
+"polymers": 1551945.0
 }
-discovered_asteroids = Array[Dictionary]([{
-"crystals": 1878,
-"metals": 39587,
-"polymers": 10630
-}, {
-"metals": 87534,
-"polymers": 26038
-}, {
-"metals": 69216,
-"polymers": 32969
-}, {
-"metals": 64377,
-"organics": 14039,
-"polymers": 42421
-}, {
-"metals": 27384,
-"organics": 18939,
-"polymers": 19810
-}])

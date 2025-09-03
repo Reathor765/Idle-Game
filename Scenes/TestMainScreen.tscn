@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://1kwib4ic2bps"]
+[gd_scene load_steps=12 format=3 uid="uid://1kwib4ic2bps"]
 
+[ext_resource type="Script" uid="uid://bkmxtoa867i6a" path="res://Scripts/MainControl.gd" id="1_imuoi"]
 [ext_resource type="Script" uid="uid://c5tuh71e6glmi" path="res://Scripts/MainTickBar.gd" id="1_pt8ix"]
-[ext_resource type="Script" uid="uid://upsqu7ke722t" path="res://Scenes/MainControl.gd" id="1_rxpa8"]
 [ext_resource type="PackedScene" uid="uid://bt2w8ai0578jg" path="res://Scenes/MainScreenResources.tscn" id="3_p3oq4"]
 [ext_resource type="PackedScene" uid="uid://d06uufokco4" path="res://Scenes/MainScreenRobotics.tscn" id="4_p3oq4"]
 [ext_resource type="PackedScene" uid="uid://yb88cl8k3pu2" path="res://Scenes/MainScreenMissions.tscn" id="5_51vry"]
 [ext_resource type="PackedScene" uid="uid://snol76knvvbq" path="res://Scenes/global_upgrades.tscn" id="6_51vry"]
 [ext_resource type="PackedScene" uid="uid://nca5v6s1b5ft" path="res://Scenes/FTLJumpWindow.tscn" id="7_su5pr"]
+[ext_resource type="Texture2D" uid="uid://ci2hgmnadqts6" path="res://Assets/PNG/Button05.png" id="8_imuoi"]
+[ext_resource type="Texture2D" uid="uid://dk10wwj7yspa8" path="res://Assets/PNG/Button08.png" id="9_ln8m4"]
+[ext_resource type="Texture2D" uid="uid://bxwryowdcrl37" path="res://Assets/PNG/Button06.png" id="10_tbi0f"]
+[ext_resource type="Script" uid="uid://cv786edp4b18m" path="res://Scenes/test_texture_progress_bar.gd" id="11_5aplw"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 0
@@ -18,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_rxpa8")
+script = ExtResource("1_imuoi")
 metadata/_edit_use_anchors_ = true
 
 [node name="SaveButton" type="Button" parent="Control"]
@@ -63,6 +67,19 @@ show_percentage = false
 script = ExtResource("1_pt8ix")
 metadata/_edit_use_anchors_ = true
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 720.0
+offset_bottom = 29.0
+step = 0.10000000000582077
+nine_patch_stretch = true
+texture_under = ExtResource("8_imuoi")
+texture_over = ExtResource("9_ln8m4")
+texture_progress = ExtResource("10_tbi0f")
+tint_over = Color(0.6542321, 0.6542321, 0.654232, 0.19607843)
+script = ExtResource("11_5aplw")
+
 [node name="Resources" parent="Control" instance=ExtResource("3_p3oq4")]
 layout_mode = 1
 
@@ -86,3 +103,4 @@ layout_mode = 1
 
 [node name="FTL_Jump_Window" parent="Control" instance=ExtResource("7_su5pr")]
 layout_mode = 1
+offset_top = 938.0

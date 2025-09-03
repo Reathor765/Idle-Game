@@ -5,7 +5,7 @@ extends Control
 # A dictionary to hold all milestone data, populated at runtime.
 # Key: milestone_id (String)
 # Value: Dictionary { "description": String, "label_node": Label, "checkbox_node": CheckBox, "check_function": Callable }
-var milestones: Dictionary = {}
+@export var milestones: Dictionary = {}
 
 # We will populate this array programmatically instead of using 40 @onready vars.
 var milestone_nodes: Array[Dictionary] = []
@@ -15,6 +15,10 @@ var animating_milestones: Array[String] = []
 
 # @onready var ftl_jump_button: Button = $FTLJumpButton # Uncomment when you add this button
 @onready var hide_completed_checkbox: CheckButton = $HideCompletedCheckbutton
+@onready var ftl_jump_button: Button = $ScrollListContainer3/FTL_Jump
+@onready var dimensional_research_button: Button = $ScrollListContainer2/DimensionalResearchButton
+@onready var ship_modifications: Button = $ScrollListContainer2/ShipModifications
+
 
 func _ready() -> void:
 	# Wait a frame for autoloads like GameManager to be fully ready.
@@ -151,8 +155,8 @@ func update_milestone_ui(_is_toggled: bool = false) -> void:
 			milestone.container_node.modulate.a = 1.0
 			
 	# This is where you would enable the FTL jump button.
-	# if ftl_jump_button:
-	# 	ftl_jump_button.disabled = not all_completed
+		if ftl_jump_button:
+			ftl_jump_button.disabled = not all_completed
 
 # --- Helper functions for complex milestone checks ---
 

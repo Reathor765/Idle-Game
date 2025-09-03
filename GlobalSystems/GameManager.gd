@@ -116,6 +116,7 @@ func _calculate_offline_progress() -> void:
 	var time_offline = time_now - player_data.last_save_timestamp
 	# Cap offline time to a reasonable maximum (e.g., 2 hours for MVP)
 	var effective_offline_time = min(time_offline, 7200)
+	var num_ticks = 0
 
 	var state_changed := false
 
@@ -140,28 +141,45 @@ func _calculate_offline_progress() -> void:
 
 	# --- Grant Offline Resources (Research & Mining) ---
 	if effective_offline_time > 0:
-		# For simplicity, grant 1 research point per minute offline, capped at 180 RP
-		var research_points_earned = min(effective_offline_time / 60.0, 180.0)
-		if research_points_earned > 0:
-			add_resource("research_points", research_points_earned, false)
-			state_changed = true
+		# Calculate the number of ticks that would have occurred.
+		var tick_time_multiplier: float = get_tick_time_multiplier()
+		var tick_interval: float = max(TickManager.BASE_TICK_INTERVAL * tick_time_multiplier, TickManager.MIN_TICK_INTERVAL)
+		num_ticks = floori(effective_offline_time / tick_interval)
 
-		if player_data.scout_findings:
+		if num_ticks > 0:
+			state_changed = true # Assume state will change if ticks have passed.
+
+			# Calculate research points earned.
+			var research_bot_count = player_data.systems.get("Sol", {}).get("infrastructure", {}).get("Research", 0)
+			if research_bot_count > 0:
+				var research_per_tick = tick_interval * research_bot_count * 0.1 # 0.1 RP per bot per second
+				add_resource("research_points", num_ticks * research_per_tick, false)
+
+			# Calculate resources mined.
 			# Note: This uses the miner count *after* offline builds completed. This is a small bonus for the player.
 			var miner_count = player_data.systems.get("Sol", {}).get("robotics", {}).get("Miner", 0)
-			if miner_count > 0:
-				var potential_yield := {
-					"metals": effective_offline_time * miner_count * 1.0,
-					"polymers": effective_offline_time * miner_count * 0.2,
-					"organics": effective_offline_time * miner_count * 0.1,
-					"crystals": effective_offline_time * miner_count * 0.05
+			if miner_count > 0 and player_data.scout_findings:
+				# Calculate miner efficiency from upgrades
+				var miner_efficiency_multiplier := 1.0
+				if player_data.has_upgrade("miner_1"): miner_efficiency_multiplier += 0.5
+				if player_data.has_upgrade("miner_2"): miner_efficiency_multiplier += 0.5
+				if player_data.has_upgrade("miner_3"): miner_efficiency_multiplier += 0.5
+				if player_data.has_upgrade("miner_4"): miner_efficiency_multiplier += 0.5
+				if player_data.has_upgrade("miner_5"): miner_efficiency_multiplier += 0.5
+				if player_data.has_upgrade("miner_6"): miner_efficiency_multiplier += 0.5
+				if player_data.has_upgrade("miner_7"): miner_efficiency_multiplier += 0.5
+				if player_data.has_upgrade("miner_8"): miner_efficiency_multiplier += 0.5
+
+				var base_yield_per_tick :float = tick_interval * miner_count * miner_efficiency_multiplier
+				var total_potential_yield := {
+					"metals": base_yield_per_tick * num_ticks * 1.0,
+					"polymers": base_yield_per_tick * num_ticks * 0.2,
+					"organics": base_yield_per_tick * num_ticks * 0.1,
+					"crystals": base_yield_per_tick * num_ticks * 0.05
 				}
-				var mined_resources = player_data.scout_findings.mine_resources(potential_yield)
+				var mined_resources = player_data.scout_findings.mine_resources(total_potential_yield)
 				for resource_name in mined_resources:
 					add_resource(resource_name, mined_resources[resource_name], false)
-
-				if not mined_resources.is_empty():
-					state_changed = true
 
 	# --- Complete Offline Milestones (AFTER state has been updated) ---
 	var milestones_to_complete: Array[String] = []
@@ -176,7 +194,11 @@ func _calculate_offline_progress() -> void:
 			player_data.complete_milestone(milestone_id)
 		state_changed = true
 
-	print("Player was offline for %s seconds. Granting %s seconds of progress." % [time_offline, effective_offline_time])
+	if num_ticks > 0:
+		print("Player was offline for %s seconds, simulating %d ticks of progress." % [time_offline, num_ticks])
+	else:
+		print("Player was offline for %s seconds. Granting %s seconds of progress." % [time_offline, effective_offline_time])
+
 
 	# If any state changed during offline calculation, emit one signal to update the UI.
 	if state_changed:
@@ -390,7 +412,7 @@ func _grant_completed_unit(unit_name: String) -> void:
 	# Remove from queue
 	player_data.build_queue.erase(unit_name)
 
-func _on_tick(delta: float) -> void:
+func _on_tick(_delta: float) -> void:
 	if not player_data or not player_data.scout_findings: return
 
 	# Calculate potential resources mined this tick
@@ -400,7 +422,7 @@ func _on_tick(delta: float) -> void:
 	# Calculate research points generated this tick
 	var research_bot_count = player_data.systems.get("Sol", {}).get("infrastructure", {}).get("Research", 0)
 	if research_bot_count > 0:
-		add_resource("research_points", delta * research_bot_count * 0.1, false) # 0.1 RP per bot per second
+		add_resource("research_points", research_bot_count * 0.25, false) # 0.1 RP per bot per second
 
 	# Calculate miner efficiency from upgrades
 	var miner_efficiency_multiplier := 1.0
@@ -416,12 +438,12 @@ func _on_tick(delta: float) -> void:
 	if player_data.has_upgrade("miner_8"): miner_efficiency_multiplier += 0.5
 
 	# Calculate potential resources mined this tick, including the efficiency bonus
-	var base_yield :float = delta * miner_count * miner_efficiency_multiplier
+	var base_yield :float = miner_count * miner_efficiency_multiplier
 	var potential_yield := {
 		"metals": base_yield * 1.0,
 		"polymers": base_yield * 0.2,
-		"organics": base_yield * 0.1,
-		"crystals": base_yield * 0.05
+		"organics": base_yield * 0.15,
+		"crystals": base_yield * 0.1
 	}
 	var mined_resources = player_data.scout_findings.mine_resources(potential_yield)
 	var state_changed = not mined_resources.is_empty()

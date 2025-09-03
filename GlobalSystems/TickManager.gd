@@ -6,7 +6,7 @@ extends Node
 signal tick(delta: float)
 
 # The base time between ticks, in seconds. This can be modified by upgrades.
-const BASE_TICK_INTERVAL: float = 10.0
+const BASE_TICK_INTERVAL: float = 3.0
 # The minimum time between ticks, to prevent performance issues at high upgrade levels.
 const MIN_TICK_INTERVAL: float = 1.0
 
