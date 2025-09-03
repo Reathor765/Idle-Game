@@ -6,23 +6,37 @@
 [resource]
 script = ExtResource("1_r0vi1")
 resources = {
-"crystals": 2803.064805908194,
-"metals": 114691.41083731549,
-"organics": 65835.30819897173,
-"polymers": 55976.44665103856,
-"research_points": 4324.0
+"crystals": 8436.68359835536,
+"metals": 310870.3330288001,
+"organics": 129493.51001761117,
+"polymers": 198369.55813286878,
+"research_points": 836.4794075718795
 }
 systems = {
 "Sol": {
 "infrastructure": {
-"Fabricator": 20,
+"Fabricator": 21,
 "Research": 2
 },
 "robotics": {
-"Miner": 48,
-"Scout": 9.0
+"Miner": 50,
+"Scout": 10.0
 }
 }
 }
+global_upgrades = {
+"asteroid_1": true,
+"asteroid_2": true,
+"fabricator_1": true,
+"fabricator_2": true,
+"miner_1": true,
+"miner_2": true,
+"research_1": true,
+"scout_1": true,
+"scout_2": true,
+"tick_time_1": true,
+"tick_time_2": true
+}
+milestones_completed = Array[String](["gather_metals_1k", "build_miners_10", "gen_research_100", "purchase_tick_1", "gather_polymers_1k", "build_fabricators_10", "purchase_miner_1", "gather_organics_1k", "build_scouts_10", "purchase_scout_1", "gather_crystals_1k", "purchase_research_1", "all_upgrades_t1", "discover_asteroid_1", "discover_asteroids_5"])
 scout_findings = ExtResource("1_u02aw")
-last_save_timestamp = 1756687985
+last_save_timestamp = 1756862169

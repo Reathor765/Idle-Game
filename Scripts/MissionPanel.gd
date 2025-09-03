@@ -207,8 +207,8 @@ func _on_release_asteroid_pressed() -> void:
 	GameManager.cycle_active_asteroid()
 
 func _on_upgrades_window_pressed() -> void:
-	var parent = self.get_parent()
-	parent.get_tree()
-	parent.find_child("GlobalUpgrades", true, false).visible = true
-	
-	
+	var upgrades := get_tree().get_root().find_child("GlobalUpgrades", true, false)
+	if upgrades:
+		upgrades.visible = true
+	else:
+		push_warning("GlobalUpgrades node not found")

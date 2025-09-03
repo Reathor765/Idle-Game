@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://8xasbj0lks42"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tree" type="Tree" parent="."]
+layout_mode = 0
+offset_right = 620.0
+offset_bottom = 323.0
+
+[node name="Label" type="Label" parent="Tree"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 42.0
+offset_right = 96.0
+offset_bottom = 65.0
+text = "test"
+
+[node name="Label" type="Label" parent="Tree/Label"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 37.0
+offset_right = 62.0
+offset_bottom = 60.0
+text = "test1"

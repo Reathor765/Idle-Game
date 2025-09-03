@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://1kwib4ic2bps"]
+[gd_scene load_steps=8 format=3 uid="uid://1kwib4ic2bps"]
 
 [ext_resource type="Script" uid="uid://c5tuh71e6glmi" path="res://Scripts/MainTickBar.gd" id="1_pt8ix"]
 [ext_resource type="Script" uid="uid://upsqu7ke722t" path="res://Scenes/MainControl.gd" id="1_rxpa8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d06uufokco4" path="res://Scenes/MainScreenRobotics.tscn" id="4_p3oq4"]
 [ext_resource type="PackedScene" uid="uid://yb88cl8k3pu2" path="res://Scenes/MainScreenMissions.tscn" id="5_51vry"]
 [ext_resource type="PackedScene" uid="uid://snol76knvvbq" path="res://Scenes/global_upgrades.tscn" id="6_51vry"]
+[ext_resource type="PackedScene" uid="uid://nca5v6s1b5ft" path="res://Scenes/FTLJumpWindow.tscn" id="7_su5pr"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 0
@@ -67,8 +68,6 @@ layout_mode = 1
 
 [node name="Robotics" parent="Control" instance=ExtResource("4_p3oq4")]
 layout_mode = 1
-anchor_left = -0.0030555301
-anchor_right = 0.9975556
 anchor_bottom = 0.44921875
 research_base_cost = {
 "crystals": 8000.0,
@@ -79,8 +78,11 @@ research_base_cost = {
 
 [node name="Missions" parent="Control" instance=ExtResource("5_51vry")]
 layout_mode = 1
-offset_bottom = 353.51996
+offset_bottom = 373.51996
 
 [node name="GlobalUpgrades" parent="Control" instance=ExtResource("6_51vry")]
 visible = false
+layout_mode = 1
+
+[node name="FTL_Jump_Window" parent="Control" instance=ExtResource("7_su5pr")]
 layout_mode = 1

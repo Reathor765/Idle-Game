@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtutflb1v5i3m"]
+
+[ext_resource type="Script" uid="uid://cv786edp4b18m" path="res://Scenes/test_texture_progress_bar.gd" id="1_ekstg"]
+[ext_resource type="Texture2D" uid="uid://drhn8ncpf5jqd" path="res://addons/scrolllistcontainer/example/PanelBackground.tres" id="1_wk1wi"]
+[ext_resource type="Texture2D" uid="uid://ch41mlmpsbpim" path="res://icon.svg" id="2_urp82"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 509.0
+offset_bottom = 134.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = ExtResource("1_wk1wi")
+texture_progress = ExtResource("2_urp82")
+tint_under = Color(0.058826633, 0.1417644, 0.10753835, 1)
+tint_over = Color(0.11713884, 0.14408469, 0.32795927, 1)
+tint_progress = Color(0.16112623, 0.2252512, 0.09313715, 1)
+script = ExtResource("1_ekstg")

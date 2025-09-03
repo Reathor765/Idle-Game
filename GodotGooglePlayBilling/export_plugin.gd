@@ -21,18 +21,18 @@ func _exit_tree():
 class BillingPluginExportPlugin extends EditorExportPlugin:
 	var _plugin_name = "GodotGooglePlayBilling"
 
-	func _supports_platform(platform):
-		if platform is EditorExportPlatformAndroid:
+	func _supports_platform(_platform):
+		if _platform is EditorExportPlatformAndroid:
 			return true
 		return false
 
-	func _get_android_libraries(platform, debug):
+	func _get_android_libraries(_platform, debug):
 		if debug:
 			return PackedStringArray([_plugin_name + "/bin/debug/" + _plugin_name + "-debug.aar"])
 		else:
 			return PackedStringArray([_plugin_name + "/bin/release/" + _plugin_name + "-release.aar"])
 
-	func _get_android_dependencies(platform, debug):
+	func _get_android_dependencies(_platform, debug):
 		if debug:
 			return PackedStringArray(["com.android.billingclient:billing-ktx:7.1.1"])
 		else:

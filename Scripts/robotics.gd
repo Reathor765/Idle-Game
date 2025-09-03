@@ -129,7 +129,7 @@ func update_display() -> void:
 			miner_build_timer.wait_time = time_left
 			miner_build_timer.start()
 	else:
-		miner_progress_bar.visible = false
+		#miner_progress_bar.visible = false
 		if not miner_build_timer.is_stopped():
 			miner_build_timer.stop()
 		var player_miner_resource = GameManager.player_data.resources.get(miner_cost_resource, 0.0)
@@ -145,7 +145,7 @@ func update_display() -> void:
 			fab_build_timer.wait_time = time_left
 			fab_build_timer.start()
 	else:
-		fab_progress_bar.visible = false
+		#fab_progress_bar.visible = false
 		if not fab_build_timer.is_stopped():
 			fab_build_timer.stop()
 		var player_fab_resource = GameManager.player_data.resources.get(fab_cost_resource, 0.0)
@@ -161,7 +161,7 @@ func update_display() -> void:
 			scout_build_timer.wait_time = time_left
 			scout_build_timer.start()
 	else:
-		scout_progress_bar.visible = false
+		#scout_progress_bar.visible = false
 		if not scout_build_timer.is_stopped():
 			scout_build_timer.stop()
 		var player_scout_resource = GameManager.player_data.resources.get(scout_cost_resource, 0.0)
@@ -177,7 +177,7 @@ func update_display() -> void:
 			research_build_timer.wait_time = time_left
 			research_build_timer.start()
 	else:
-		research_progress_bar.visible = false
+		#research_progress_bar.visible = false
 		if not research_build_timer.is_stopped():
 			research_build_timer.stop()
 		

@@ -4,6 +4,27 @@
 
 [resource]
 script = ExtResource("1_ntf6r")
-mission_completion_timestamp = 1756687988
-active_mission_index = 2
-active_mission_reward_scouts = 5
+active_asteroid = {
+"metals": 0.0,
+"organics": 8116.61000084877,
+"polymers": 16248.22000169754
+}
+discovered_asteroids = Array[Dictionary]([{
+"crystals": 1878,
+"metals": 39587,
+"polymers": 10630
+}, {
+"metals": 87534,
+"polymers": 26038
+}, {
+"metals": 69216,
+"polymers": 32969
+}, {
+"metals": 64377,
+"organics": 14039,
+"polymers": 42421
+}, {
+"metals": 27384,
+"organics": 18939,
+"polymers": 19810
+}])

@@ -30,8 +30,8 @@ func _init():
 	set_notify_transform(true)
 	_check_scrollbars()
 	
-	scrollbar_h.value_changed.connect(_scroll)
-	scrollbar_v.value_changed.connect(_scroll)
+	#scrollbar_h.value_changed.connect(_scroll)
+	#scrollbar_v.value_changed.connect(_scroll)
 	sort_children.connect(_reflow)
 	
 	set_clip_contents(true)
@@ -91,10 +91,12 @@ func _check_scrollbars():
 		scrollbar_v = VScrollBar.new()
 		scrollbar_v.name = "_scrollbar_v"
 		add_child(scrollbar_v)
+		scrollbar_v.value_changed.connect(_scroll)
 	if scrollbar_h == null:
 		scrollbar_h = HScrollBar.new()
 		scrollbar_h.name = "_scrollbar_h"
 		add_child(scrollbar_h)
+		scrollbar_h.value_changed.connect(_scroll)
 
 func _scroll(_unused):
 	if !vertical:
@@ -219,6 +221,8 @@ func _fix_bg():
 	RenderingServer.canvas_item_set_draw_index(rid, get_index()-1)
 	
 	var t = background_texture
+	if !t:
+		return
 	var s = Rect2(Vector2(), t.get_size())
 	var r = _calculate_bg_rect()
 	var rect = _get_ninepatch_rect()

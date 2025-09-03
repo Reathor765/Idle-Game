@@ -49,10 +49,15 @@ func _update_tick_interval() -> void:
 
 func _calculate_tick_interval() -> float:
 	"""Determines the tick interval based on global upgrades."""
-	if not GameManager.player_data:
+	if not GameManager or not GameManager.player_data:
 		return BASE_TICK_INTERVAL
 
-	var tick_speed_level: int = GameManager.player_data.global_upgrades.get("tick_time_1", 0)
-	var new_interval := BASE_TICK_INTERVAL / pow(1.1, tick_speed_level)
+	# Get the cumulative multiplier from the GameManager.
+	# A value of 0.9 means the tick duration is 90% of the base (10% faster).
+	var tick_time_multiplier: float = GameManager.get_tick_time_multiplier()
+	
+	# Apply the multiplier to the base interval.
+	var new_interval: float = BASE_TICK_INTERVAL * tick_time_multiplier
 
+	# Ensure the interval doesn't go below the minimum allowed value.
 	return max(new_interval, MIN_TICK_INTERVAL)

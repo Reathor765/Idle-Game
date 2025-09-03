@@ -12,6 +12,7 @@ class_name ResourceControl
 @export var robotics_name_labels: Array[RichTextLabel]
 @export var robotics_value_labels: Array[RichTextLabel]
 
+
 # --- Configuration ---
 # Define which resources these labels should display, in order.
 # IMPORTANT: These names must match the keys in GameManager.player_data.resources

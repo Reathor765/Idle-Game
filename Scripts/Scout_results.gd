@@ -23,9 +23,15 @@ class_name ScoutFindings
 # The scout count modifier for the active mission, used for reward calculation.
 @export var active_mission_reward_scouts: int = 0
 
+enum ScoutMission {
+	SHORT_RANGE,
+	LONG_RANGE,
+	DEEP_SPACE
+}
+
 # --- Rarity Configuration ---
 # Defines the chance for each resource to appear on a new asteroid.
-const RESOURCE_CHANCES : Dictionary= {
+var RESOURCE_CHANCES : Dictionary= {
 	"metals": 1.0,    # Always appears
 	"polymers": 0.75, # 75% chance
 	"organics": 0.40, # 40% chance
@@ -52,16 +58,28 @@ func get_discovery_chances() -> Dictionary:
 
 # Generates a new asteroid. The number of scouts can influence the result.
 func generate_new_asteroid(scout_count: int) -> Dictionary:
-	var new_asteroid : Dictionary = {}
-	var rng : RandomNumberGenerator= RandomNumberGenerator.new()
+	var new_asteroid: Dictionary = {}
+	var rng := RandomNumberGenerator.new()
 
-	# The more scouts, the better the potential yield (e.g., a 5% bonus per scout)
-	var quantity_bonus = 1.0 + (scout_count * 0.05)
+	# Create a local copy of the chances to avoid modifying the class constant.
+	var current_chances = RESOURCE_CHANCES.duplicate()
+	# Each scout increases the chance of finding rarer resources by a small amount.
+	for _i in range(scout_count):
+		for res_name in current_chances:
+			# Cap the chance at 100%
+			current_chances[res_name] = min(current_chances[res_name] + 0.05, 1.0)
 
-	for res_name in RESOURCE_CHANCES:
-		if rng.randf() < RESOURCE_CHANCES[res_name]:
+	# Start with a base quantity bonus from scouts (e.g., 5% more resources per scout).
+	var quantity_multiplier = 1.0 + (scout_count * 0.05)
+	
+	# Get the powerful multiplier from global upgrades and apply it.
+	# This correctly handles the doubling effect for each purchased "Asteroid" tier.
+	quantity_multiplier *= GameManager.get_asteroid_resource_multiplier()
+
+	for res_name in current_chances:
+		if rng.randf() < current_chances[res_name]:
 			var amount_range: Vector2 = RESOURCE_AMOUNTS[res_name]
-			var amount = rng.randf_range(amount_range.x, amount_range.y) * quantity_bonus
+			var amount = rng.randf_range(amount_range.x, amount_range.y) * quantity_multiplier
 			new_asteroid[res_name] = int(amount)
 	
 	return new_asteroid

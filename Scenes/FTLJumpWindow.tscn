@@ -1,0 +1,353 @@
+[gd_scene load_steps=4 format=3 uid="uid://nca5v6s1b5ft"]
+
+[ext_resource type="Script" uid="uid://cyuyaofyyd12i" path="res://addons/scrolllistcontainer/ScrollListContainer.gd" id="1_bpj75"]
+[ext_resource type="Script" uid="uid://d2lo1rn1xek6q" path="res://Scripts/ftl_jump_window.gd" id="1_qfu6v"]
+[ext_resource type="Theme" uid="uid://dhlu3yyeoa2ta" path="res://Assets/FTLJumpWindow.tres" id="3_qfu6v"]
+
+[node name="FTL_Jump_Window" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 945.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qfu6v")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 335.0
+border_width = 3.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = -16.0
+offset_right = 102.0
+offset_bottom = 7.0
+grow_horizontal = 2
+text = "Preparations for FTL Jump"
+
+[node name="ScrollListContainer" type="Container" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_top = 42.0
+offset_right = 360.0
+offset_bottom = 330.0
+script = ExtResource("1_bpj75")
+side_margin = 10.0
+metadata/_custom_type_script = "uid://cyuyaofyyd12i"
+
+[node name="AchievementList" type="VBoxContainer" parent="ScrollListContainer"]
+layout_mode = 2
+
+[node name="Milestone1" type="HBoxContainer" parent="ScrollListContainer/AchievementList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollListContainer/AchievementList/Milestone1"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "The first of many Miners"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollListContainer/AchievementList/Milestone1"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+button_mask = 0
+
+[node name="Milestone2" type="HBoxContainer" parent="ScrollListContainer/AchievementList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollListContainer/AchievementList/Milestone2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "Quicker manufacturing"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollListContainer/AchievementList/Milestone2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+button_mask = 0
+
+[node name="Milestone3" type="HBoxContainer" parent="ScrollListContainer/AchievementList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollListContainer/AchievementList/Milestone3"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "This is the first of many achievements"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollListContainer/AchievementList/Milestone3"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+button_mask = 0
+
+[node name="Milestone4" type="HBoxContainer" parent="ScrollListContainer/AchievementList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollListContainer/AchievementList/Milestone4"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "This is the first of many achievements"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollListContainer/AchievementList/Milestone4"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+button_mask = 0
+
+[node name="Milestone5" type="HBoxContainer" parent="ScrollListContainer/AchievementList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollListContainer/AchievementList/Milestone5"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "This is the first of many achievements"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollListContainer/AchievementList/Milestone5"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+button_mask = 0
+
+[node name="Milestone6" type="HBoxContainer" parent="ScrollListContainer/AchievementList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollListContainer/AchievementList/Milestone6"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "This is the first of many achievements"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollListContainer/AchievementList/Milestone6"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+button_mask = 0
+
+[node name="Milestone7" type="HBoxContainer" parent="ScrollListContainer/AchievementList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollListContainer/AchievementList/Milestone7"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "This is the first of many achievements"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollListContainer/AchievementList/Milestone7"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+button_mask = 0
+
+[node name="Milestone8" type="HBoxContainer" parent="ScrollListContainer/AchievementList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollListContainer/AchievementList/Milestone8"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "This is the first of many achievements"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollListContainer/AchievementList/Milestone8"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+button_mask = 0
+
+[node name="Milestone9" type="HBoxContainer" parent="ScrollListContainer/AchievementList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollListContainer/AchievementList/Milestone9"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "This is the first of many achievements"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollListContainer/AchievementList/Milestone9"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+button_mask = 0
+
+[node name="Milestone10" type="HBoxContainer" parent="ScrollListContainer/AchievementList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollListContainer/AchievementList/Milestone10"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "This is the first of many achievements"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollListContainer/AchievementList/Milestone10"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+button_mask = 0
+
+[node name="Milestone11" type="HBoxContainer" parent="ScrollListContainer/AchievementList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollListContainer/AchievementList/Milestone11"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "This is the first of many achievements"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollListContainer/AchievementList/Milestone11"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+button_mask = 0
+
+[node name="Milestone12" type="HBoxContainer" parent="ScrollListContainer/AchievementList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollListContainer/AchievementList/Milestone12"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "This is the first of many achievements"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollListContainer/AchievementList/Milestone12"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+button_mask = 0
+
+[node name="Milestone13" type="HBoxContainer" parent="ScrollListContainer/AchievementList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollListContainer/AchievementList/Milestone13"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "This is the first of many achievements"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollListContainer/AchievementList/Milestone13"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+button_mask = 0
+
+[node name="Milestone14" type="HBoxContainer" parent="ScrollListContainer/AchievementList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollListContainer/AchievementList/Milestone14"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "This is the first of many achievements"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollListContainer/AchievementList/Milestone14"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+button_mask = 0
+
+[node name="Milestone15" type="HBoxContainer" parent="ScrollListContainer/AchievementList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollListContainer/AchievementList/Milestone15"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "This is the first of many achievements"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollListContainer/AchievementList/Milestone15"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+button_mask = 0
+
+[node name="Milestone16" type="HBoxContainer" parent="ScrollListContainer/AchievementList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollListContainer/AchievementList/Milestone16"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "This is the first of many achievements"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollListContainer/AchievementList/Milestone16"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+button_mask = 0
+
+[node name="Milestone17" type="HBoxContainer" parent="ScrollListContainer/AchievementList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollListContainer/AchievementList/Milestone17"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "This is the first of many achievements"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollListContainer/AchievementList/Milestone17"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+button_mask = 0
+
+[node name="Milestone18" type="HBoxContainer" parent="ScrollListContainer/AchievementList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollListContainer/AchievementList/Milestone18"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "This is the first of many achievements"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollListContainer/AchievementList/Milestone18"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+button_mask = 0
+
+[node name="Milestone19" type="HBoxContainer" parent="ScrollListContainer/AchievementList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollListContainer/AchievementList/Milestone19"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "This is the first of many achievements"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollListContainer/AchievementList/Milestone19"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+button_mask = 0
+
+[node name="Milestone20" type="HBoxContainer" parent="ScrollListContainer/AchievementList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollListContainer/AchievementList/Milestone20"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "This is the first of many achievements"
+
+[node name="CheckBox" type="CheckBox" parent="ScrollListContainer/AchievementList/Milestone20"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+button_mask = 0
+
+[node name="HideCompletedCheckbutton" type="CheckButton" parent="."]
+layout_mode = 0
+offset_right = 261.0
+offset_bottom = 31.0
+text = "Hide Completed Milestones"
+
+[node name="ScrollListContainer2" type="Container" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 360.0
+offset_top = 7.0
+offset_right = 720.0
+offset_bottom = 125.0
+script = ExtResource("1_bpj75")
+spacing = 4.0
+initial_spacing = 8.0
+side_margin = 8.0
+metadata/_custom_type_script = "uid://cyuyaofyyd12i"
+
+[node name="DimensionalResearchButton" type="Button" parent="ScrollListContainer2"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Dimensional Research"
+
+[node name="ShipModifications" type="Button" parent="ScrollListContainer2"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Ship Modifications"
+
+[node name="ScrollListContainer3" type="Container" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 360.0
+offset_top = 215.0
+offset_right = 720.0
+offset_bottom = 334.0
+script = ExtResource("1_bpj75")
+spacing = 4.0
+initial_spacing = 8.0
+side_margin = 8.0
+metadata/_custom_type_script = "uid://cyuyaofyyd12i"
+
+[node name="FTL_Jump" type="Button" parent="ScrollListContainer3"]
+layout_mode = 2
+theme = ExtResource("3_qfu6v")
+text = "FTL Jump!"

@@ -5,13 +5,11 @@
 [node name="Robotics" type="Control"]
 layout_mode = 3
 anchor_left = -0.00027775235
-anchor_top = 0.20071876
-anchor_right = 1.0003334
-anchor_bottom = 0.5
+anchor_top = 0.19993751
+anchor_right = 1.0
+anchor_bottom = 0.43359375
 offset_left = 0.19998169
 offset_top = 0.07998657
-offset_right = -0.24005127
-offset_bottom = 1.9999695
 script = ExtResource("1_v7ihp")
 metadata/_edit_use_anchors_ = true
 
@@ -348,3 +346,9 @@ size_flags_vertical = 4
 wait_time = 180.0
 one_shot = true
 ignore_time_scale = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 299.0
+border_width = 3.0

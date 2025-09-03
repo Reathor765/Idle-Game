@@ -63,6 +63,12 @@ var  upgrades: Dictionary = {}
 
 @onready var return_button: Button = $GlobalUpgradePanel/ScrollListContainer/ReturnButton
 
+enum ButtonState {
+	LOCKED,
+	AVAILABLE,
+	PURCHASED
+}
+
 func _ready() -> void:
 	# It's good practice to wait a frame for autoloads like GameManager to be fully ready.
 	await get_tree().process_frame
@@ -440,8 +446,12 @@ func _on_upgrade_pressed(upgrade_id: String) -> void:
 	
 	if success:
 		print("Successfully purchased upgrade: ", upgrade_id)
+		update_ui()
 	else:
 		print("Failed to purchase upgrade: ", upgrade_id)
+	
+	
+
 
 func _on_return_pressed()-> void:
 	self.visible = false

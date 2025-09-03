@@ -7,17 +7,17 @@ layout_mode = 3
 anchor_left = 0.030833334
 anchor_top = 0.03525
 anchor_right = 0.72066665
-anchor_bottom = 0.15187499
+anchor_bottom = 0.19874999
 offset_left = -0.20000076
 offset_top = -0.12000275
 offset_right = 0.11999512
 offset_bottom = -0.3999939
 script = ExtResource("1_yd4co")
-resource_name_labels = [NodePath("MarginContainer/BoxContainer/Resource1"), NodePath("MarginContainer/BoxContainer/Resrouce2"), NodePath("MarginContainer/BoxContainer/Resrouce3"), NodePath("MarginContainer/BoxContainer/Resource4")]
-resource_value_labels = [NodePath("MarginContainer2/BoxContainer/Total1"), NodePath("MarginContainer2/BoxContainer/Total2"), NodePath("MarginContainer2/BoxContainer/Total3"), NodePath("MarginContainer2/BoxContainer/Total4")]
+resource_name_labels = [NodePath("MarginContainer/BoxContainer/Resource1"), NodePath("MarginContainer/BoxContainer/Resrouce2"), NodePath("MarginContainer/BoxContainer/Resrouce3"), NodePath("MarginContainer/BoxContainer/Resource4"), NodePath("MarginContainer/BoxContainer/Resource5")]
+resource_value_labels = [NodePath("MarginContainer2/BoxContainer/Total1"), NodePath("MarginContainer2/BoxContainer/Total2"), NodePath("MarginContainer2/BoxContainer/Total3"), NodePath("MarginContainer2/BoxContainer/Total4"), NodePath("MarginContainer2/BoxContainer/Total5")]
 robotics_name_labels = [NodePath("MarginContainer4/BoxContainer/Resource1"), NodePath("MarginContainer4/BoxContainer/Resrouce2"), NodePath("MarginContainer4/BoxContainer/Resrouce3"), NodePath("MarginContainer4/BoxContainer/Resource4")]
 robotics_value_labels = [NodePath("MarginContainer3/BoxContainer/Total1"), NodePath("MarginContainer3/BoxContainer/Total2"), NodePath("MarginContainer3/BoxContainer/Total3"), NodePath("MarginContainer3/BoxContainer/Total4")]
-displayed_resources = Array[String](["metals", "polymers", "organics", "crystals"])
+displayed_resources = Array[String](["metals", "polymers", "organics", "crystals", "research_points"])
 displayed_systems = Array[String](["Miner", "Fabricator", "Scout", "Research"])
 metadata/_edit_use_anchors_ = true
 
@@ -72,6 +72,13 @@ size_flags_horizontal = 3
 text = "Resource 4"
 horizontal_alignment = 1
 
+[node name="Resource5" type="RichTextLabel" parent="MarginContainer/BoxContainer"]
+custom_minimum_size = Vector2(138, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Research Points"
+horizontal_alignment = 1
+
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -122,6 +129,13 @@ custom_minimum_size = Vector2(100, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Total 4"
+horizontal_alignment = 1
+
+[node name="Total5" type="RichTextLabel" parent="MarginContainer2/BoxContainer"]
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Total 5"
 horizontal_alignment = 1
 
 [node name="MarginContainer3" type="MarginContainer" parent="."]
@@ -226,3 +240,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Robotics 4"
 horizontal_alignment = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 0
+offset_right = 497.0
+offset_bottom = 209.0
+border_width = 3.0
