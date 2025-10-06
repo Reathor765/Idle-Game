@@ -33,7 +33,11 @@ func _on_tick_timer_timeout() -> void:
 	# We pass the duration of the tick (the timer's wait_time) as the delta.
 	tick.emit(_tick_timer.wait_time)
 
-	
+
+func get_tick_interval() -> float:
+	if _tick_timer:
+		return _tick_timer.wait_time
+	return BASE_TICK_INTERVAL
 
 
 func _update_tick_interval() -> void:

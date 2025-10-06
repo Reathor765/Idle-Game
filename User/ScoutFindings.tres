@@ -1,12 +1,11 @@
-[gd_resource type="Resource" script_class="ScoutFindings" load_steps=2 format=3 uid="uid://d3ko8j4adr6ri"]
+[gd_resource type="Resource" script_class="ScoutFindings" load_steps=2 format=3]
 
-[ext_resource type="Script" uid="uid://pc8vqclvav6q" path="res://Scripts/Scout_results.gd" id="1_ntf6r"]
+[ext_resource type="Script" path="res://Scripts/Scout_results.gd" id="1_ntf6r"]
 
 [resource]
 script = ExtResource("1_ntf6r")
 active_asteroid = {
-"crystals": 36337.0,
-"metals": 3989315.0,
-"organics": 789822.0,
-"polymers": 1551945.0
+"crystals": 8031.811673749937,
+"metals": 0.0,
+"polymers": 2081954.2466949997
 }

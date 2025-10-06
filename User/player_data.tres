@@ -1,16 +1,16 @@
-[gd_resource type="Resource" script_class="PlayerData" load_steps=3 format=3 uid="uid://cv6y1oq8r3kxk"]
+[gd_resource type="Resource" script_class="PlayerData" load_steps=3 format=3]
 
-[ext_resource type="Script" uid="uid://1lm2x26m8n6" path="res://GlobalSystems/PlayerData.gd" id="1_r0vi1"]
-[ext_resource type="Resource" uid="uid://d3ko8j4adr6ri" path="res://User/ScoutFindings.tres" id="1_u02aw"]
+[ext_resource type="Script" path="res://GlobalSystems/PlayerData.gd" id="1_r0vi1"]
+[ext_resource type="Resource" path="res://User/ScoutFindings.tres" id="1_u02aw"]
 
 [resource]
 script = ExtResource("1_r0vi1")
 resources = {
-"crystals": 999999839655.076,
-"metals": 1000000123726.27,
-"organics": 999999789413.1792,
-"polymers": 1000000001595.2092,
-"research_points": 690176011831.2709
+"crystals": 953775120376.9387,
+"metals": 1000013321736.9696,
+"organics": 1000000592360.1792,
+"polymers": 1000004314394.3025,
+"research_points": 690177710246.5682
 }
 systems = {
 "Sol": {
@@ -20,7 +20,7 @@ systems = {
 },
 "robotics": {
 "Miner": 500,
-"Scout": 50.0
+"Scout": 76.0
 }
 }
 }
@@ -76,4 +76,4 @@ global_upgrades = {
 }
 milestones_completed = Array[String](["gather_metals_1k", "build_miners_10", "gen_research_100", "purchase_tick_1", "gather_polymers_1k", "build_fabricators_10", "purchase_miner_1", "gather_organics_1k", "build_scouts_10", "purchase_scout_1", "gather_crystals_1k", "purchase_research_1", "all_upgrades_t1", "discover_asteroid_1", "discover_asteroids_5", "deplete_asteroid_1", "gen_research_10k", "purchase_tier_3_upg", "gather_metals_1m", "build_research_10"])
 scout_findings = ExtResource("1_u02aw")
-last_save_timestamp = 1756932754
+last_save_timestamp = 1758571795

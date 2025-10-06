@@ -62,7 +62,7 @@ var  upgrades: Dictionary = {}
 @onready var research_upgrade_8: Button = $GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer2/ResearchUpgrade8
 
 @onready var return_button: Button = $GlobalUpgradePanel/ScrollListContainer/ReturnButton
-
+@onready var toggle_button: CheckButton = $GlobalUpgradePanel/ScrollListContainer/ReturnButton/CheckButton
 enum ButtonState {
 	LOCKED,
 	AVAILABLE,
@@ -77,8 +77,10 @@ func _ready() -> void:
 	
 	GameManager.player_data_updated.connect(update_ui)
 	update_ui()
-
 	return_button.pressed.connect(_on_return_pressed)
+	toggle_button.toggled.connect(_on_toggle_button_toggled)
+func _on_toggle_button_toggled(_toggled: bool) -> void:
+	update_ui()
 
 func _initialize_upgrades() -> void:
 	upgrades = {
@@ -407,6 +409,7 @@ func update_ui() -> void:
 			button.disabled = true
 			button.text = data.description + "\n(Purchased)"
 			button.modulate = Color.DARK_GRAY
+			button.visible = not toggle_button.toggled
 			continue
 
 		# Check dependencies
@@ -415,11 +418,11 @@ func update_ui() -> void:
 			if not GameManager.player_data.has_upgrade(dep_id):
 				dependencies_met = false
 				break
-		
 		if not dependencies_met:
 			button.disabled = true
 			button.text = data.description + "\n(Locked)"
 			button.modulate = Color.WHITE # Reset color
+			button.visible = true
 			continue
 
 		# Check cost
@@ -432,10 +435,10 @@ func update_ui() -> void:
 			if GameManager.player_data.resources.get(resource, 0.0) < cost_amount:
 				can_afford = false
 		cost_string += ", ".join(cost_parts)
-		
 		button.text = data.description + "\n" + cost_string
 		button.disabled = not can_afford
 		button.modulate = Color.WHITE # Reset color
+		button.visible = true
 
 
 func _on_upgrade_pressed(upgrade_id: String) -> void:

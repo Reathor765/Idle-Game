@@ -44,8 +44,8 @@ extends Control
 
 @export_group("Research Bots")
 @export var research_base_cost: Dictionary = {}
-@export var research_cost_increment: float = 1.35
-@export var research_base_build_time: float = 600.0 # seconds
+@export var research_cost_increment: float = 1.25
+@export var research_base_build_time: float = 20.0 # seconds
 @export var research_build_time_increment: float = 1.10 # 10% longer per existing fabricator
 
 # --- Private State ---

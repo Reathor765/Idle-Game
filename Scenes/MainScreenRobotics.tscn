@@ -4,12 +4,7 @@
 
 [node name="Robotics" type="Control"]
 layout_mode = 3
-anchor_left = -0.00027775235
-anchor_top = 0.19993751
-anchor_right = 1.0
-anchor_bottom = 0.43359375
-offset_left = 0.19998169
-offset_top = 0.07998657
+anchors_preset = 0
 script = ExtResource("1_v7ihp")
 research_base_cost = {
 "crystals": 100.0,
@@ -18,16 +13,19 @@ research_base_cost = {
 "polymers": 100.0
 }
 research_cost_increment = 1.1999999999970896
-research_base_build_time = 20.0
-metadata/_edit_use_anchors_ = true
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
-layout_mode = 0
-offset_right = 720.0
-offset_bottom = 299.0
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 border_width = 3.0
 
 [node name="FabricatorLabel" type="RichTextLabel" parent="."]
+visible = false
 custom_minimum_size = Vector2(100, 24)
 layout_mode = 1
 anchors_preset = -1
@@ -40,79 +38,61 @@ grow_horizontal = 2
 text = "Robotics"
 horizontal_alignment = 1
 
-[node name="Mining" type="Node" parent="."]
+[node name="Mining" type="Control" parent="."]
+layout_mode = 1
+offset_right = 969.0
+offset_bottom = 60.0
 
 [node name="AsteroidMiner" type="RichTextLabel" parent="Mining"]
-custom_minimum_size = Vector2(134.56, 24)
+custom_minimum_size = Vector2(170.795, 60)
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -342.0
-offset_top = -346.0
-offset_right = -207.44
-offset_bottom = -322.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 289.655
+offset_bottom = 50.0
+theme_override_font_sizes/normal_font_size = 35
 text = "Asteroid Miners"
 
 [node name="MinerCost" type="HBoxContainer" parent="Mining"]
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -177.0
-offset_top = -346.5
-offset_right = -83.0
-offset_bottom = -322.5
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 321.0
+offset_right = 579.05
+offset_bottom = 50.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Mining/MinerCost"]
-custom_minimum_size = Vector2(40, 24)
+custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 35
 text = "Cost"
 
 [node name="MinerBuyVal" type="RichTextLabel" parent="Mining/MinerCost"]
-custom_minimum_size = Vector2(80, 24)
+custom_minimum_size = Vector2(120, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 35
 text = "value"
+horizontal_alignment = 1
 
 [node name="MinerBuyButton" type="Button" parent="Mining"]
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = -346.5
-offset_right = -10.0
-offset_bottom = -315.5
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 562.0
+offset_right = 642.0
+offset_bottom = 60.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Buy"
 
 [node name="MinerProgressBar" type="ProgressBar" parent="Mining"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 27.0
-offset_top = -346.5
-offset_right = 227.0
-offset_bottom = -319.5
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 669.0
+offset_right = 969.0
+offset_bottom = 60.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -121,79 +101,63 @@ wait_time = 30.000000000000004
 one_shot = true
 ignore_time_scale = true
 
-[node name="Fabrication" type="Node" parent="."]
+[node name="Fabrication" type="Control" parent="."]
+layout_mode = 1
+offset_left = -1.0
+offset_top = 64.0
+offset_right = 968.0
+offset_bottom = 124.0
 
 [node name="ShipFabricator" type="RichTextLabel" parent="Fabrication"]
-custom_minimum_size = Vector2(100, 24)
+custom_minimum_size = Vector2(212, 60)
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -342.0
-offset_top = -281.5
-offset_right = -242.0
-offset_bottom = -257.5
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 100.0
+offset_bottom = 24.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 35
 text = "Fabricators"
 
 [node name="FabCost" type="HBoxContainer" parent="Fabrication"]
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -192.0
-offset_top = -282.0
-offset_right = -68.0
-offset_bottom = -258.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 322.0
+offset_right = 536.0
+offset_bottom = 50.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Fabrication/FabCost"]
-custom_minimum_size = Vector2(40, 24)
+custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 35
 text = "Cost"
 
 [node name="FabBuyVal" type="RichTextLabel" parent="Fabrication/FabCost"]
-custom_minimum_size = Vector2(80, 24)
+custom_minimum_size = Vector2(120, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 35
 text = "value"
+horizontal_alignment = 1
 
 [node name="FabBuyButton" type="Button" parent="Fabrication"]
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = -282.0
-offset_right = -10.0
-offset_bottom = -251.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 563.0
+offset_right = 643.0
+offset_bottom = 60.0
 text = "Buy"
 
 [node name="FabProgressBar" type="ProgressBar" parent="Fabrication"]
 custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 27.0
-offset_top = -282.0
-offset_right = 227.0
-offset_bottom = -255.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 670.0
+offset_right = 970.0
+offset_bottom = 59.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -202,76 +166,61 @@ wait_time = 180.0
 one_shot = true
 ignore_time_scale = true
 
-[node name="Scout Drone" type="Node" parent="."]
+[node name="Scout Drone" type="Control" parent="."]
+layout_mode = 1
+offset_left = -1.0
+offset_top = 128.0
+offset_right = 968.0
+offset_bottom = 188.0
 
 [node name="DroneLabel" type="RichTextLabel" parent="Scout Drone"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -342.0
-offset_top = -214.0
-offset_right = -241.0
-offset_bottom = -189.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 222.0
+offset_bottom = 50.0
+theme_override_font_sizes/normal_font_size = 35
 text = "Scout Drone"
 
 [node name="DroneCost" type="HBoxContainer" parent="Scout Drone"]
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -192.0
-offset_top = -214.0
-offset_right = -68.0
-offset_bottom = -190.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 321.0
+offset_right = 445.0005
+offset_bottom = 24.000011
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Scout Drone/DroneCost"]
-custom_minimum_size = Vector2(40, 24)
+custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 35
 text = "Cost"
 
 [node name="DroneBuyVal" type="RichTextLabel" parent="Scout Drone/DroneCost"]
-custom_minimum_size = Vector2(80, 24)
+custom_minimum_size = Vector2(120, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 35
 text = "value"
+horizontal_alignment = 1
 
 [node name="DroneBuyButton" type="Button" parent="Scout Drone"]
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = -214.0
-offset_right = -10.0
-offset_bottom = -183.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 563.0
+offset_right = 643.0
+offset_bottom = 60.0
 text = "Buy"
 
 [node name="DroneProgressBar" type="ProgressBar" parent="Scout Drone"]
 custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 27.0
-offset_top = -214.0
-offset_right = 227.0
-offset_bottom = -187.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 669.0
+offset_right = 969.0
+offset_bottom = 60.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -280,79 +229,63 @@ wait_time = 180.0
 one_shot = true
 ignore_time_scale = true
 
-[node name="Research Bots" type="Node" parent="."]
+[node name="Research Bots" type="Control" parent="."]
+layout_mode = 1
+offset_top = 192.0
+offset_right = 969.0
+offset_bottom = 252.0
 
 [node name="ResearchLabel" type="RichTextLabel" parent="Research Bots"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -342.0
-offset_top = -150.0
-offset_right = -224.0
-offset_bottom = -124.99866
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 248.0
+offset_bottom = 60.0
+theme_override_font_sizes/normal_font_size = 35
 text = "Research Bots"
 
 [node name="ResearchCost" type="HBoxContainer" parent="Research Bots"]
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -192.0
-offset_top = -185.0
-offset_right = -68.0
-offset_bottom = -88.99573
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 321.0
+offset_right = 545.0
+offset_bottom = 60.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Research Bots/ResearchCost"]
-custom_minimum_size = Vector2(40, 95)
+custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 35
 text = "Cost"
-vertical_alignment = 1
 
 [node name="ResearchBuyVal" type="RichTextLabel" parent="Research Bots/ResearchCost"]
-custom_minimum_size = Vector2(112.83, 96)
+custom_minimum_size = Vector2(120, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
 text = "value"
 fit_content = true
+horizontal_alignment = 1
 
 [node name="ResearchBuyButton" type="Button" parent="Research Bots"]
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = -150.0
-offset_right = -10.0
-offset_bottom = -118.99487
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 562.0
+offset_right = 642.0
+offset_bottom = 60.0
 text = "Buy"
 
 [node name="ResearchProgressBar" type="ProgressBar" parent="Research Bots"]
 custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 27.0
-offset_top = -150.0
-offset_right = 227.0
-offset_bottom = -122.99695
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 669.0
+offset_top = 1.0
+offset_right = 969.0
+offset_bottom = 60.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 

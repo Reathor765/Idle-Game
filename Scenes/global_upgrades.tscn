@@ -41,9 +41,18 @@ background_texture = ExtResource("4_xpfc0")
 metadata/_custom_type_script = "uid://cyuyaofyyd12i"
 
 [node name="ReturnButton" type="Button" parent="GlobalUpgradePanel/ScrollListContainer"]
-custom_minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 66)
 layout_mode = 2
+theme_override_font_sizes/font_size = 35
 text = "Return to Main Screen"
+
+[node name="CheckButton" type="CheckButton" parent="GlobalUpgradePanel/ScrollListContainer/ReturnButton"]
+layout_mode = 0
+offset_left = 1514.0001
+offset_top = 9.059998
+offset_right = 1558.0001
+offset_bottom = 33.059998
+scale = Vector2(2.15, 2.15)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GlobalUpgradePanel/ScrollListContainer"]
 layout_mode = 2
@@ -52,145 +61,161 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TickTimeUpgrade" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="TickTimeUpgrade2" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="TickTimeUpgrade3" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="TickTimeUpgrade4" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="TickTimeUpgrade5" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="TickTimeUpgrade6" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="TickTimeUpgrade7" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="TickTimeUpgrade8" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="AsteroidUpgrade" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="AsteroidUpgrade2" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="AsteroidUpgrade3" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="AsteroidUpgrade4" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="AsteroidUpgrade5" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="AsteroidUpgrade6" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="AsteroidUpgrade7" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="AsteroidUpgrade8" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
@@ -199,145 +224,161 @@ keep_pressed_outside = true
 layout_mode = 2
 
 [node name="MinerUpgrade" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer8"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="MinerUpgrade2" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer8"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="MinerUpgrade3" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer8"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="MinerUpgrade4" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer8"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="MinerUpgrade5" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer8"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="MinerUpgrade6" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer8"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="MinerUpgrade7" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer8"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="MinerUpgrade8" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer8"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="FabricatorUpgrade" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer8"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="FabricatorUpgrade2" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer8"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="FabricatorUpgrade3" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer8"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="FabricatorUpgrade4" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer8"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="FabricatorUpgrade5" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer8"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="FabricatorUpgrade6" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer8"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="FabricatorUpgrade7" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer8"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="FabricatorUpgrade8" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer8"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
@@ -346,145 +387,161 @@ keep_pressed_outside = true
 layout_mode = 2
 
 [node name="ScoutUpgrade" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="ScoutUpgrade2" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="ScoutUpgrade3" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="ScoutUpgrade4" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="ScoutUpgrade5" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="ScoutUpgrade6" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="ScoutUpgrade7" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="ScoutUpgrade8" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="ResearchUpgrade" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="ResearchUpgrade2" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="ResearchUpgrade3" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="ResearchUpgrade4" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="ResearchUpgrade5" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="ResearchUpgrade6" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="ResearchUpgrade7" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 
 [node name="ResearchUpgrade8" type="Button" parent="GlobalUpgradePanel/ScrollListContainer/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(225, 48)
+custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
 toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true

@@ -8,6 +8,11 @@
 
 config_version=5
 
+[addons]
+
+curved_lines_2d/snap_to_pixel=false
+curved_lines_2d/use_line_2d_for_stroke=true
+
 [application]
 
 config/name="Idle-Game"
@@ -23,8 +28,10 @@ SaveManager="*res://GlobalSystems/SaveManager.gd"
 
 [display]
 
-window/size/viewport_width=720
-window/size/viewport_height=1280
+window/size/viewport_width=2560
+window/size/viewport_height=1440
+window/size/window_width_override=1920
+window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
 window/handheld/orientation=6
 
@@ -34,7 +41,17 @@ project/assembly_name="Idle-Game"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/scrolllistcontainer/plugin.cfg")
+enabled=PackedStringArray("res://addons/nv.node_pivot/plugin.cfg", "res://addons/scrolllistcontainer/plugin.cfg")
+
+[importer_defaults]
+
+svg={
+&"base_scale": 4.0,
+&"compress": false
+}
+texture={
+&"mipmaps/generate": true
+}
 
 [rendering]
 
